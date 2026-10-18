@@ -1,0 +1,32 @@
+name: Update TVBox live config
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 16 * * *"
+  push:
+    paths:
+      - "scripts/update_live.py"
+      - ".github/workflows/update-live.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate TVBox compatible live list
+        run: python scripts/update_live.py
+      - name: Commit live_config.txt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add live_config.txt
+          git diff --cached --quiet && exit 0
+          git commit -m "Update TVBox live config"
+          git push
