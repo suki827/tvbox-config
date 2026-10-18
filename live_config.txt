@@ -2,7 +2,6 @@
 
 新西兰,#genre#
 ThreeNow Sport 1,https://i.mjh.nz/.r/sky-popup1.m3u8
-ThreeNow Sport 2,https://i.mjh.nz/.r/sky-popup2.m3u8
 HGTV,https://i.mjh.nz/.r/sky-hgtv.m3u8
 CNN Headlines International,https://i.mjh.nz/.r/sky-ptcn.m3u8
 MovieSphere,https://i.mjh.nz/.r/sky-ptms.m3u8
