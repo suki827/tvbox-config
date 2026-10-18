@@ -84,7 +84,30 @@ def main():
         except Exception as e:
             print("WARN", group, e)
 
-    pathlib.Path("live_config.txt").write_text("\n".join(lines), encoding="utf-8")
+    txt_content = "\n".join(lines)
+    pathlib.Path("live_config.txt").write_text(txt_content, encoding="utf-8")
+
+    # 同步生成标准 M3U，保留完整分组名
+    m3u_lines = ["#EXTM3U"]
+    current_group = ""
+    for raw in lines:
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        if line.endswith(",#genre#"):
+            current_group = line[:-len(",#genre#")]
+            continue
+        if "," not in line:
+            continue
+        name, play = line.split(",", 1)
+        if not play.startswith(("http://", "https://", "rtmp://", "rtsp://", "udp://")):
+            continue
+        safe_name = name.replace('"', "'")
+        safe_group = current_group.replace('"', "'")
+        m3u_lines.append(f'#EXTINF:-1 group-title="{safe_group}",{safe_name}')
+        m3u_lines.append(play)
+
+    pathlib.Path("live_config.m3u").write_text("\n".join(m3u_lines) + "\n", encoding="utf-8")
 
 if __name__ == "__main__":
     main()
