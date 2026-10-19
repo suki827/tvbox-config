@@ -35,7 +35,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "six-minute-english",
@@ -73,7 +73,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "the-english-we-speak",
@@ -111,7 +111,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "learning-english-from-news",
@@ -148,7 +148,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "voa-lets-learn-english",
@@ -185,7 +185,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "voa-learning-english-podcast",
@@ -222,7 +222,7 @@
     "link_check_status": "STALE_RSS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "abc-business-english",
@@ -261,7 +261,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "british-council-learnenglish",
@@ -295,10 +295,10 @@
     "learning_type": "listening",
     "source_name": "British Council",
     "nz_access": "NZ_UNVERIFIED",
-    "link_check_status": "TIMEOUT",
+    "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "british-council-podcasts",
@@ -333,10 +333,10 @@
     "transcript_scope": "programme_page",
     "source_name": "British Council",
     "nz_access": "NZ_UNVERIFIED",
-    "link_check_status": "TIMEOUT",
+    "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "rnz-learning",
@@ -373,7 +373,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "bbc-news-learning",
@@ -409,7 +409,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "ted-ed",
@@ -446,7 +446,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "voa-level-2",
@@ -485,7 +485,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "voa-everyday-grammar",
@@ -524,7 +524,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "abc-learn-english",
@@ -563,7 +563,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "abc-listening-for-meaning",
@@ -602,7 +602,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "abc-life-chat-small-talk",
@@ -641,7 +641,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "rnz-morning-report",
@@ -680,7 +680,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "rnz-saturday",
@@ -719,7 +719,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "british-council-grammar",
@@ -755,10 +755,10 @@
     "transcript_scope": "unknown",
     "source_name": "British Council",
     "nz_access": "NZ_UNVERIFIED",
-    "link_check_status": "TIMEOUT",
+    "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "ted-talks",
@@ -797,6 +797,6 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   }
 ]

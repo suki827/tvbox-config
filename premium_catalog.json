@@ -33,7 +33,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "tvnz-plus-home",
@@ -69,7 +69,7 @@
     "link_check_status": "SKIPPED_POLICY",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "abc-news-australia-home",
@@ -105,7 +105,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "dw-english-home",
@@ -141,7 +141,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "france24-english-home",
@@ -177,7 +177,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "al-jazeera-english-home",
@@ -213,7 +213,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "nasa-plus-home",
@@ -249,7 +249,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "nhk-world-japan-home",
@@ -285,7 +285,7 @@
     "link_check_status": "PASS",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "bloomberg-television-home",
@@ -321,7 +321,7 @@
     "link_check_status": "ACCESS_DENIED",
     "verification_status": "NOT_TESTED",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "rnz-national-live",
@@ -360,7 +360,7 @@
     "link_check_status": "PASS",
     "verification_status": "PASS",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "rnz-concert-live",
@@ -399,7 +399,7 @@
     "link_check_status": "PASS",
     "verification_status": "PASS",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "abc-news-live",
@@ -438,7 +438,7 @@
     "link_check_status": "PENDING_RIGHTS",
     "verification_status": "PENDING_RIGHTS",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "dw-english-live",
@@ -477,7 +477,7 @@
     "link_check_status": "PENDING_RIGHTS",
     "verification_status": "PENDING_RIGHTS",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "france24-english-live",
@@ -516,7 +516,7 @@
     "link_check_status": "PENDING_RIGHTS",
     "verification_status": "PENDING_RIGHTS",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "al-jazeera-english-live",
@@ -555,7 +555,7 @@
     "link_check_status": "PENDING_RIGHTS",
     "verification_status": "PENDING_RIGHTS",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "nasa-plus-live",
@@ -594,7 +594,7 @@
     "link_check_status": "PENDING_RIGHTS",
     "verification_status": "PENDING_RIGHTS",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "nhk-world-japan-live",
@@ -633,7 +633,7 @@
     "link_check_status": "PENDING_RIGHTS",
     "verification_status": "PENDING_RIGHTS",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   },
   {
     "id": "bloomberg-television-live",
@@ -672,6 +672,6 @@
     "link_check_status": "PENDING_RIGHTS",
     "verification_status": "PENDING_RIGHTS",
     "verification_region": "NZ_UNVERIFIED",
-    "verification_checked_at": "2026-10-19T09:06:40+00:00"
+    "verification_checked_at": "2026-10-19T09:09:52+00:00"
   }
 ]
