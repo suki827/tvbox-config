@@ -1,14 +1,16 @@
-# TVBox 配置与精品媒体目录
+# TVBox 英文高清 IPTV
 
-- 原有综合频道：[`live_config.m3u`](live_config.m3u)，原始基线：[`live_config_base.m3u`](live_config_base.m3u)
-- 英文高清频道：[`english_hd.m3u`](english_hd.m3u)
-- A 综合精品电视：[`premium_tv.m3u`](premium_tv.m3u)、[`premium_radio.m3u`](premium_radio.m3u)、[`premium_catalog.json`](premium_catalog.json)
-- B 英语学习：[`english_learning.m3u`](english_learning.m3u)、[`english_learning_catalog.json`](english_learning_catalog.json)
-- 静态目录网页源文件：[`docs/index.html`](docs/index.html)
-- 媒体状态、授权门槛、地区限制和 Pages 启用步骤：[`MEDIA_CATALOG.md`](MEDIA_CATALOG.md)
+核心订阅：[`english_hd.m3u`](english_hd.m3u) · [播放器直连地址](https://raw.githubusercontent.com/suki827/tvbox-config/main/english_hd.m3u)
 
-M3U 只收录得到明确第三方播放器授权且技术检测通过的直播源。`premium_radio.m3u` 现有 RNZ National 和 RNZ Concert 两个官方广播流；视频直播及 B 学习直播仍无符合条件的直连源。官方点播、课程和 Podcast 入口可在 JSON 与静态目录中查看。自动检测报告见 [`data/media_verification.json`](data/media_verification.json) 和 [`media_check_report.csv`](media_check_report.csv)。
+本订阅只发布来源使用条件明确、无需登录或 DRM、经过 `ffprobe` 验证至少 1280×720 的英文视频直播。当前收录 **Parliament TV (New Zealand)**：新西兰议会官方直播，Kordia 提供直播平台；主 HLS 包含 1080p 码率，适用于 TVBox、VLC。议会非开会时可能播放重播或待播画面。自动检测区域为 `NZ_UNVERIFIED`；新西兰实际播放仍需在当地设备复测。它的[官方使用条件](https://www3.parliament.nz/en/get-involved/information-for-the-press/parliament-tv-terms-and-conditions/)要求遵守广播法律义务，不得用于商业广告或误导性呈现。
 
-运行测试：`python3 -m unittest discover -s tests -v`。本地仅生成目录：`python3 scripts/build_media.py`；检测官方入口、RSS 与获准直播：`python3 scripts/build_media.py --check`。
+## 构建与复测
 
-在树莓派的本地网络检测播放：`python3 scripts/check_local_playback.py --region NZ --workers 2 --timeout 15`。此命令只写本地 `local_playback_report.json`，不会更改授权状态或 GitHub Actions 报告。区域是操作者声明，只有树莓派确实位于新西兰网络时才应填 `NZ`。详见 [`MEDIA_CATALOG.md`](MEDIA_CATALOG.md)。
+- 候选池：[`data/iptv_candidates.json`](data/iptv_candidates.json)；正式选择：[`data/iptv_selected.json`](data/iptv_selected.json)。候选中的 `ffprobe` 成功只是技术结果，`rights_status=pending` 的频道不会发布。
+- 本机测试：`python3 -m unittest discover -s tests -v`
+- 执行检测：`python3 scripts/build_english_hd.py --workers 4 --timeout 15 --max-checks 24`
+- Raspberry Pi 5：安装 `ffmpeg` 后运行 `python3 scripts/check_local_playback.py --playlist english_hd.m3u --region NZ --workers 2 --timeout 45`。报告写入 `local_playback_report.json`；全失败写入 `.failed.json`，保留原成功报告。`--region` 是操作者声明，不构成自动定位证明。
+
+[`english_hd_verification.csv`](english_hd_verification.csv) 包含本轮每条候选的权限状态、检测状态、分辨率、耗时和检测区域。每天运行一次的 `english-hd.yml` 只处理英文高清 IPTV。旧媒体目录、Podcast、课程、A/B 文件保留但停止自动更新。综合列表 `live_config.m3u` 和 `live_config_base.m3u` 完全独立，英文高清流程不写入它们；旧综合列表自动更新已暂停，仅保留手动触发入口。
+
+TVNZ+ 是需要账户的新西兰官方服务；目前未发现面向 TVBox 的公开、受支持第三方播放器 API 或 OAuth 接入。遵守[TVNZ+ 官方条款](https://corporate.tvnz.co.nz/house-rules/)，仅保留[官方观看入口](https://www.tvnz.co.nz/)，不探测旧列表中的 TVNZ 直链，也不处理账号、Cookie 或令牌。

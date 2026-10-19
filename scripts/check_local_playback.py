@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
-"""Probe approved media on an operator-controlled network (for example a Raspberry Pi)."""
+"""Check a published IPTV playlist from an operator-controlled local network."""
 import argparse
 import json
 import os
-import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 
 try:
-    from .build_media import ROOT, probe, read_json, stream_eligible, validate
+    from .build_english_hd import ROOT, check, safe_stream
+    from .playlist import parse_entries
 except ImportError:
-    from build_media import ROOT, probe, read_json, stream_eligible, validate
+    from build_english_hd import ROOT, check, safe_stream
+    from playlist import parse_entries
 
 
 def atomic_json(path, value):
@@ -21,51 +22,39 @@ def atomic_json(path, value):
     os.replace(temporary, path)
 
 
-def run(root=ROOT, region='NZ', output=None, workers=2, timeout=15):
-    root = Path(root)
-    output = Path(output) if output else root / 'local_playback_report.json'
-    if workers < 1 or workers > 8 or timeout < 2 or timeout > 60:
-        raise ValueError('workers must be 1–8 and timeout must be 2–60 seconds')
-    sources = read_json(root / 'data/media_sources.json')
-    items = read_json(root / 'data/media_items.json')
-    validate(sources, items)
-    source_by_id = {source['id']: source for source in sources}
-    candidates = [item for item in items if stream_eligible(item, source_by_id[item['source_id']])]
+def run(playlist=ROOT/'english_hd.m3u', region='NZ', output=ROOT/'local_playback_report.json', workers=2, timeout=15):
+    playlist, output = Path(playlist), Path(output)
+    if not 1 <= workers <= 8 or not 2 <= timeout <= 60:
+        raise ValueError('workers must be 1-8 and timeout 2-60 seconds')
+    entries = parse_entries(playlist.read_text(encoding='utf-8-sig'))
+    if any(not safe_stream(entry.url) for entry in entries):
+        raise ValueError('Playlist contains an unsafe or non-video URL')
     checked_at = datetime.now(timezone.utc).isoformat(timespec='seconds')
-
-    def check(item):
-        start = time.monotonic()
-        status, width, height, detail = probe(item, timeout=timeout)
-        return {'id': item['id'], 'source_id': item['source_id'], 'type': item['type'],
-                'status': status, 'ffprobe_passed': status == 'PASS', 'width': width,
-                'height': height, 'startup_seconds': round(time.monotonic() - start, 3),
+    def probe(entry):
+        width, height, status, detail, elapsed = check(entry.url, timeout)
+        return {'name': entry.header.split(',', 1)[-1], 'status': status,
+                'width': width, 'height': height, 'startup_seconds': elapsed,
                 'detail': detail, 'checked_at': checked_at}
-
     with ThreadPoolExecutor(max_workers=workers) as pool:
-        results = list(pool.map(check, candidates))
+        results = list(pool.map(probe, entries))
     report = {'checked_at': checked_at, 'declared_region': region,
               'region_basis': 'operator_declared_local_network', 'runner': 'local',
-              'rights_unchanged': True, 'candidate_count': len(candidates), 'results': results}
-    if any(result['ffprobe_passed'] for result in results):
-        atomic_json(output, report)
-        return report, True
-    failed_path = output.with_name(output.stem + '.failed.json')
-    atomic_json(failed_path, report)
-    return report, False
+              'playlist': playlist.name, 'rights_unchanged': True, 'results': results}
+    success = bool(results) and any(item['status'] == 'PASS' for item in results)
+    target = output if success else output.with_name(output.stem + '.failed.json')
+    atomic_json(target, report)
+    return report, success, target
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--region', required=True, help='Operator-declared test region, e.g. NZ')
-    parser.add_argument('--output', type=Path, default=ROOT / 'local_playback_report.json')
+    parser.add_argument('--playlist', type=Path, default=ROOT/'english_hd.m3u')
+    parser.add_argument('--region', required=True, help='Operator-declared region, not geolocation proof')
+    parser.add_argument('--output', type=Path, default=ROOT/'local_playback_report.json')
     parser.add_argument('--workers', type=int, default=2)
-    parser.add_argument('--timeout', type=int, default=15, help='Per-stream ffprobe timeout in seconds')
+    parser.add_argument('--timeout', type=int, default=15)
     args = parser.parse_args()
-    result, passed = run(region=args.region, output=args.output,
-                         workers=args.workers, timeout=args.timeout)
-    print(json.dumps({'candidate_count': result['candidate_count'],
-                      'passed': sum(x['ffprobe_passed'] for x in result['results']),
-                      'declared_region': result['declared_region'],
-                      'report': str(args.output if passed else args.output.with_name(args.output.stem + '.failed.json'))},
-                     ensure_ascii=False))
-    raise SystemExit(0 if passed else 1)
+    report, success, target = run(args.playlist, args.region, args.output, args.workers, args.timeout)
+    print(json.dumps({'channels': len(report['results']), 'passed': sum(r['status']=='PASS' for r in report['results']),
+                      'declared_region': args.region, 'report': str(target)}, ensure_ascii=False))
+    raise SystemExit(0 if success else 1)

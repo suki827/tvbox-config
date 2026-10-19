@@ -1,20 +1,11 @@
-name: Update TVBox live config
-
+name: Update TVBox live config (frozen)
+# The 4071-channel base playlists are protected during the English HD refactor.
+# This legacy workflow is retained for an intentional manual run only.
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "20 16 * * *"
-  push:
-    paths:
-      - "scripts/update_live.py"
-      - ".github/workflows/update-live.yml"
 
 permissions:
   contents: write
-
-concurrency:
-  group: live-playlist-update
-  cancel-in-progress: false
 
 jobs:
   update:
@@ -28,30 +19,20 @@ jobs:
         with:
           python-version: "3.12"
       - name: Generate TVBox compatible live list
-        id: generate
         run: |
-          python -m unittest discover -s tests -v
-          python scripts/update_live.py
+          python3 -m unittest discover -s tests -v
+          python3 scripts/update_live.py
       - name: Commit live playlists
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for attempt in 1 2 3; do
-            git fetch origin main
-            if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/main)" ]; then
-              git reset --hard origin/main
-              python scripts/update_live.py
-            fi
-            git add -A -- live_config.txt live_config_base.m3u live_config.m3u
-            if git diff --cached --quiet; then
-              echo "No playlist changes."
-              exit 0
-            fi
-            git commit -m "chore: update TVBox live config"
-            if git push origin HEAD:main; then
-              exit 0
-            fi
-            echo "Push raced with another update; retrying from origin/main."
-          done
-          exit 1
+          git fetch origin main
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/main)" ]; then
+            echo "Main advanced; rerun this manual workflow to avoid overwriting changes." >&2
+            exit 1
+          fi
+          git add -- live_config.txt live_config_base.m3u live_config.m3u
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "chore: update TVBox live config"
+          git push origin HEAD:main

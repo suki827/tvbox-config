@@ -1,5 +1,7 @@
 # 精品媒体目录
 
+> **已冻结（2026-10-19）**：以下是旧媒体中心的历史说明。主工作流已停止运行 `build_media.py`，不再自动更新 A/B、Podcast 或网页目录。当前英文高清 IPTV 的实际流程、候选审核和订阅请看 [`README.md`](README.md) 与 [`IPTV_REVIEW.md`](IPTV_REVIEW.md)。
+
 本项目保留原有 `live_config.m3u` 和 `live_config_base.m3u`。A/B 新目录由 `data/media_sources.json`、`data/media_items.json` 生成；`docs/` 是可用 GitHub Pages 发布的静态页面。HTTP 200、官网可浏览、`ffprobe` 成功分别只说明入口或技术连通性，**均不证明第三方播放器转播授权**。
 
 ## 五种接入

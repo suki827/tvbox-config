@@ -1,126 +1,163 @@
-import csv
+import copy
+import hashlib
+import json
 import tempfile
 import unittest
 from pathlib import Path
+from subprocess import CompletedProcess, TimeoutExpired
 from unittest.mock import patch
 
-from scripts import build_english_hd
-from scripts.playlist import merge_playlists, parse_entries
+from scripts import build_english_hd, check_local_playback, commit_english_hd
+from scripts.playlist import parse_entries
 
 
-BASE = '''#EXTM3U
-#EXTINF:-1 group-title="新闻",中文新闻
-https://example.org/chinese.m3u8
-#EXTINF:-1 tvg-id="Existing.us" group-title="美国",Existing
-https://example.org/existing.m3u8
-'''
+class EnglishHDTests(unittest.TestCase):
+    def setUp(self):
+        self.seed = build_english_hd.read_json(build_english_hd.ROOT/'data/iptv_candidates.json')
+
+    def approved(self):
+        item = copy.deepcopy(next(x for x in self.seed if x['id']=='france24-english'))
+        item.update(rights_status='approved', rights_checked_at='2026-10-19',
+                    rights_evidence_url='https://example.org/licence', drm_status='none',
+                    access_requirements='none', probe_allowed=True)
+        return item
+
+    def fixture(self, items):
+        temporary = tempfile.TemporaryDirectory()
+        root = Path(temporary.name)
+        (root/'data').mkdir()
+        build_english_hd.write_json(root/'data/iptv_candidates.json',items)
+        build_english_hd.write_json(root/'data/iptv_selected.json',[])
+        for name in ('live_config.m3u','live_config_base.m3u'):
+            (root/name).write_bytes((build_english_hd.ROOT/name).read_bytes())
+        return temporary, root
+
+    def test_protected_baseline_hashes_and_counts(self):
+        baseline = build_english_hd.read_json(build_english_hd.ROOT/'data/protected_baseline.json')
+        for name, expected in baseline.items():
+            blob = (build_english_hd.ROOT/name).read_bytes()
+            self.assertEqual(hashlib.sha256(blob).hexdigest(),expected['sha256'])
+            self.assertEqual(blob.count(b'#EXTINF:'),expected['entries'])
+
+    def test_unapproved_probe_pass_cannot_publish(self):
+        item = copy.deepcopy(self.seed[0]);item['probe_allowed']=True
+        temporary,root = self.fixture([item])
+        with temporary, patch.object(build_english_hd,'check',return_value=(1920,1080,'PASS','',0.5)):
+            self.assertFalse(build_english_hd.build(root))
+            self.assertEqual((root/'english_hd.m3u').read_text(),'#EXTM3U\n')
+            self.assertEqual(build_english_hd.read_json(root/'data/iptv_candidates.json')[0]['state'],'DISCOVERED')
+
+    def test_publish_format_utf8_and_protected_files_unchanged(self):
+        item = self.approved()
+        temporary,root = self.fixture([item])
+        original = {name:(root/name).read_bytes() for name in ('live_config.m3u','live_config_base.m3u')}
+        with temporary, patch.object(build_english_hd,'check',return_value=(1920,1080,'PASS','',0.2)):
+            self.assertTrue(build_english_hd.build(root))
+            first = (root/'english_hd.m3u').read_bytes()
+            self.assertTrue(build_english_hd.build(root))
+            self.assertEqual(first,(root/'english_hd.m3u').read_bytes())
+            text = first.decode('utf-8')
+            self.assertIn('group-title="英文·新闻"',text)
+            self.assertEqual(len(parse_entries(text)),1)
+            for name,blob in original.items():self.assertEqual((root/name).read_bytes(),blob)
+
+    def test_no_video_and_low_resolution_rejected(self):
+        for output,expected in [(json.dumps({'streams':[]}), 'NO_VIDEO'),
+                                (json.dumps({'streams':[{'codec_type':'video','width':640,'height':360}]}),'LOW_RESOLUTION')]:
+            with self.subTest(expected=expected), patch.object(build_english_hd.subprocess,'run',return_value=CompletedProcess([],0,output,'')):
+                self.assertEqual(build_english_hd.check('https://example.org/a.m3u8')[2],expected)
+
+    def test_multibitrate_master_selects_highest_probed_video(self):
+        streams = {'streams': [
+            {'codec_type':'video','width':1024,'height':576},
+            {'codec_type':'video','width':1280,'height':720},
+            {'codec_type':'video','width':1920,'height':1080}]}
+        with patch.object(build_english_hd.subprocess,'run',return_value=CompletedProcess([],0,json.dumps(streams),'')):
+            self.assertEqual(build_english_hd.check('https://example.org/master.m3u8')[:3],(1920,1080,'PASS'))
+
+    def test_403_is_access_denied_not_region(self):
+        with patch.object(build_english_hd.subprocess,'run',return_value=CompletedProcess([],1,'','HTTP error 403: Forbidden')):
+            self.assertEqual(build_english_hd.check('https://example.org/a.m3u8')[2],'ACCESS_DENIED')
+        with patch.object(build_english_hd.subprocess,'run',side_effect=TimeoutExpired([],15)):
+            self.assertEqual(build_english_hd.check('https://example.org/a.m3u8')[2],'TIMEOUT')
+
+    def test_duplicate_url_and_signed_url_rejected(self):
+        item=self.approved();duplicate=copy.deepcopy(item);duplicate['id']='other'
+        with self.assertRaises(ValueError):build_english_hd.validate([item,duplicate])
+        self.assertFalse(build_english_hd.safe_stream('https://example.org/live.m3u8?token=secret'))
+        self.assertFalse(build_english_hd.safe_stream('https://example.org/watch'))
+
+    def test_temporary_failure_keeps_last_valid_but_not_fresh_verified(self):
+        temporary,root=self.fixture([self.approved()])
+        with temporary:
+            with patch.object(build_english_hd,'check',return_value=(1920,1080,'PASS','',0.1)):
+                build_english_hd.build(root)
+            published=(root/'english_hd.m3u').read_bytes()
+            with patch.object(build_english_hd,'check',return_value=(0,0,'TIMEOUT','slow',15.0)):
+                build_english_hd.build(root)
+            self.assertEqual((root/'english_hd.m3u').read_bytes(),published)
+            selected=build_english_hd.read_json(root/'data/iptv_selected.json')[0]
+            self.assertEqual(selected['publication_status'],'RETAINED_RECHECK')
+            self.assertNotEqual(selected['state'],'VERIFIED')
+
+    def test_revoked_rights_removes_previous_publication(self):
+        temporary,root=self.fixture([self.approved()])
+        with temporary:
+            with patch.object(build_english_hd,'check',return_value=(1920,1080,'PASS','',0.1)):
+                build_english_hd.build(root)
+            items=build_english_hd.read_json(root/'data/iptv_candidates.json')
+            items[0]['rights_status']='restricted'
+            build_english_hd.write_json(root/'data/iptv_candidates.json',items)
+            build_english_hd.build(root)
+            self.assertEqual((root/'english_hd.m3u').read_text(),'#EXTM3U\n')
+
+    def test_tvnz_candidate_has_official_entry_without_credentials_or_probe(self):
+        tvnz=next(item for item in self.seed if item['id']=='tvnz-plus')
+        self.assertIsNone(tvnz['stream_url'])
+        self.assertFalse(tvnz['probe_allowed'])
+        self.assertEqual(tvnz['access_requirements'],'account')
+        self.assertFalse(build_english_hd.publishable(tvnz))
+        workflow=(build_english_hd.ROOT/'.github/workflows/english-hd.yml').read_text()
+        self.assertNotIn('build_media.py',workflow)
+        self.assertNotIn('live_config.m3u',commit_english_hd.FILES)
+        self.assertNotIn('live_config_base.m3u',commit_english_hd.FILES)
+
+    def test_empty_pool_preserves_subscription(self):
+        temporary,root=self.fixture([])
+        old='#EXTM3U\n#EXTINF:-1 group-title="英文·新闻",Old\nhttps://example.org/old.m3u8\n'
+        (root/'english_hd.m3u').write_text(old)
+        with temporary:
+            self.assertFalse(build_english_hd.build(root))
+            self.assertEqual((root/'english_hd.m3u').read_text(),old)
+
+    def test_local_report_separate_and_failure_preserves_success(self):
+        temporary,root=self.fixture([])
+        playlist=root/'english_hd.m3u';playlist.write_text(build_english_hd.playlist([self.approved()]))
+        report=root/'local.json'
+        with temporary:
+            with patch.object(check_local_playback,'check',return_value=(1920,1080,'PASS','',0.3)):
+                _,passed,_=check_local_playback.run(playlist,'NZ',report)
+            self.assertTrue(passed);previous=report.read_bytes()
+            with patch.object(check_local_playback,'check',return_value=(0,0,'TIMEOUT','slow',15.0)):
+                _,passed,failed_path=check_local_playback.run(playlist,'NZ',report)
+            self.assertFalse(passed);self.assertEqual(report.read_bytes(),previous)
+            self.assertTrue(failed_path.exists())
+            self.assertFalse((root/'data/media_verification.json').exists())
+
+    def test_push_conflict_fetches_and_rebuilds(self):
+        calls=[];heads=iter(['old','commit','new']);remotes=iter(['old','new'])
+        pushes=iter([1,0])
+        def fake(*args,**kwargs):
+            calls.append(args)
+            if args[:3]==('git','rev-parse','HEAD'):return CompletedProcess(args,0,next(heads),'')
+            if args[:3]==('git','rev-parse','origin/main'):return CompletedProcess(args,0,next(remotes),'')
+            if args[:3]==('git','diff','--cached'):return CompletedProcess(args,1,'','')
+            if args[:2]==('git','push'):return CompletedProcess(args,next(pushes),'','')
+            return CompletedProcess(args,0,'','')
+        self.assertTrue(commit_english_hd.push_results(fake))
+        self.assertIn(('git','reset','--hard','origin/main'),calls)
+        self.assertEqual(sum(x[:2]==('git','push') for x in calls),2)
+        self.assertTrue(any('scripts/build_english_hd.py' in x for x in calls))
 
 
-class PlaylistTests(unittest.TestCase):
-    def test_probe_budget_covers_each_country(self):
-        found = [({'country': country}, f'https://example.org/{country}/{i}')
-                 for country in ('CA', 'GB', 'NZ', 'US') for i in range(4)]
-        selected = build_english_hd.select_candidates(found, 4)
-        self.assertEqual({item[0]['country'] for item in selected}, {'NZ', 'US', 'GB', 'CA'})
-
-    def test_merge_preserves_base_and_is_idempotent(self):
-        hd = '''#EXTM3U
-#EXTINF:-1 tvg-id="New.us" group-title="英文高清",New
-https://example.org/new.m3u8
-#EXTINF:-1 tvg-id="Existing.us" group-title="英文高清",Existing
-https://example.org/other.m3u8
-'''
-        result = merge_playlists(BASE, hd)
-        self.assertTrue(result.startswith(BASE))
-        self.assertEqual(result.count('group-title="英文高清"'), 1)
-        self.assertEqual(merge_playlists(result, hd), result)
-        self.assertIn('中文新闻', result)
-        self.assertEqual(len(parse_entries(result)), 3)
-
-    def test_merge_rejects_same_name_even_with_different_id(self):
-        hd = '''#EXTM3U
-#EXTINF:-1 tvg-id="Other.us" group-title="英文高清",Existing
-https://example.org/other.m3u8
-'''
-        self.assertEqual(merge_playlists(BASE, hd), BASE)
-
-    def test_no_approval_does_not_change_existing_files(self):
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            (root / 'live_config_base.m3u').write_text(BASE, encoding='utf-8')
-            (root / 'live_config.m3u').write_text(BASE, encoding='utf-8')
-            result = build_english_hd.build(root, approved_hosts=set())
-            self.assertFalse(result)
-            self.assertEqual((root / 'live_config.m3u').read_text(encoding='utf-8'), BASE)
-            self.assertFalse((root / 'english_hd.m3u').exists())
-
-    def test_verified_hd_only_and_failure_preserves_previous(self):
-        channels = [
-            {'id': 'Good.us', 'name': 'Good', 'country': 'US', 'categories': ['news']},
-            {'id': 'Low.gb', 'name': 'Low', 'country': 'GB', 'categories': ['documentary']},
-        ]
-        feeds = [{'channel': x['id'], 'id': None, 'languages': ['eng']} for x in channels]
-        streams = [
-            {'channel': 'Good.us', 'feed': None, 'url': 'https://approved.example/good.m3u8'},
-            {'channel': 'Good.us', 'feed': None, 'url': 'https://approved.example/duplicate.m3u8'},
-            {'channel': 'Low.gb', 'feed': None, 'url': 'https://approved.example/low.m3u8'},
-        ]
-        data = {'channels.json': channels, 'feeds.json': feeds, 'streams.json': streams}
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            (root / 'live_config_base.m3u').write_text(BASE, encoding='utf-8')
-            (root / 'live_config.m3u').write_text(BASE, encoding='utf-8')
-            def probe(url):
-                return (1920, 1080, 'PASS', '') if 'good' in url else (640, 360, 'LOW_RESOLUTION', '')
-            with patch.object(build_english_hd, 'fetch', side_effect=data.get), patch.object(build_english_hd, 'check', side_effect=probe):
-                self.assertTrue(build_english_hd.build(root, {'approved.example'}, max_checks=10, workers=2))
-            hd = (root / 'english_hd.m3u').read_text(encoding='utf-8')
-            combined = (root / 'live_config.m3u').read_text(encoding='utf-8')
-            self.assertEqual(hd.count('#EXTINF:'), 1)
-            self.assertIn('Good', combined)
-            self.assertIn('中文新闻', combined)
-            with (root / 'english_hd_verification.csv').open(encoding='utf-8', newline='') as handle:
-                statuses = [row['status'] for row in csv.DictReader(handle)]
-            self.assertEqual(sorted(statuses), ['LOW_RESOLUTION', 'LOW_RESOLUTION', 'PASS'])
-            with patch.object(build_english_hd, 'fetch', side_effect=data.get), patch.object(build_english_hd, 'check', return_value=(0, 0, 'TIMEOUT', 'timed out')):
-                self.assertFalse(build_english_hd.build(root, {'approved.example'}, max_checks=10, workers=2))
-            self.assertEqual((root / 'english_hd.m3u').read_text(encoding='utf-8'), hd)
-            self.assertEqual((root / 'live_config.m3u').read_text(encoding='utf-8'), combined)
-
-    def test_probe_classifies_errors(self):
-        from subprocess import CompletedProcess, TimeoutExpired
-        cases = [
-            ('Connection refused', 'UNREACHABLE'),
-            ('HTTP error 403: geo blocked', 'REGION_RESTRICTED'),
-            ('HTTP error 403: Forbidden', 'ACCESS_DENIED'),
-            ('Invalid data found', 'OTHER_ERROR'),
-        ]
-        for message, expected in cases:
-            with self.subTest(message=message), patch.object(build_english_hd.subprocess, 'run', return_value=CompletedProcess([], 1, '', message)):
-                self.assertEqual(build_english_hd.check('https://example.org/x')[2], expected)
-        with patch.object(build_english_hd.subprocess, 'run', side_effect=TimeoutExpired([], 22)):
-            self.assertEqual(build_english_hd.check('https://example.org/x')[2], 'TIMEOUT')
-
-    def test_higher_resolution_stream_wins_for_same_channel(self):
-        data = {
-            'feeds.json': [{'channel': 'News.us', 'id': None, 'languages': ['eng']}],
-            'channels.json': [{'id': 'News.us', 'name': 'News', 'country': 'US', 'categories': ['news']}],
-            'streams.json': [
-                {'channel': 'News.us', 'feed': None, 'url': 'https://approved.example/720.m3u8'},
-                {'channel': 'News.us', 'feed': None, 'url': 'https://approved.example/1080.m3u8'},
-            ],
-        }
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            (root / 'live_config_base.m3u').write_text(BASE, encoding='utf-8')
-            def probe(url):
-                return (1920, 1080, 'PASS', '') if '1080' in url else (1280, 720, 'PASS', '')
-            with patch.object(build_english_hd, 'fetch', side_effect=data.get), patch.object(build_english_hd, 'check', side_effect=probe):
-                self.assertTrue(build_english_hd.build(root, {'approved.example'}))
-            hd = (root / 'english_hd.m3u').read_text(encoding='utf-8')
-            self.assertIn('/1080.m3u8', hd)
-            self.assertNotIn('/720.m3u8', hd)
-
-
-if __name__ == '__main__':
-    unittest.main()
+if __name__=='__main__':unittest.main()

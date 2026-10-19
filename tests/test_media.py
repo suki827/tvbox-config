@@ -6,7 +6,6 @@ from pathlib import Path
 from unittest.mock import patch
 
 from scripts import build_media
-from scripts import check_local_playback
 from scripts.playlist import parse_entries
 
 
@@ -123,28 +122,6 @@ class MediaTests(unittest.TestCase):
             status, code, _ = build_media.check_web('https://example.org')
         error.close()
         self.assertEqual((status, code), ('ACCESS_DENIED', 403))
-
-    def test_local_playback_keeps_github_report_separate(self):
-        with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp); (root/'data').mkdir()
-            for name in ('media_sources.json', 'media_items.json', 'media_verification.json'):
-                (root/'data'/name).write_bytes((build_media.ROOT/'data'/name).read_bytes())
-            github_report = (root/'data/media_verification.json').read_bytes()
-            source_data = (root/'data/media_sources.json').read_bytes()
-            output = root/'pi.json'
-            with patch.object(check_local_playback, 'probe', return_value=('PASS', 0, 0, '')):
-                report, passed = check_local_playback.run(root, 'NZ', output, workers=2, timeout=5)
-            self.assertTrue(passed)
-            self.assertEqual(report['candidate_count'], 2)
-            self.assertEqual(report['region_basis'], 'operator_declared_local_network')
-            self.assertEqual((root/'data/media_verification.json').read_bytes(), github_report)
-            self.assertEqual((root/'data/media_sources.json').read_bytes(), source_data)
-            previous = output.read_bytes()
-            with patch.object(check_local_playback, 'probe', return_value=('TIMEOUT', 0, 0, 'slow')):
-                _, passed = check_local_playback.run(root, 'NZ', output, workers=2, timeout=5)
-            self.assertFalse(passed)
-            self.assertEqual(output.read_bytes(), previous)
-            self.assertTrue((root/'pi.failed.json').exists())
 
     def test_approved_rnz_audio_is_deduplicated_and_utf8(self):
         sources = {source['id']: source for source in self.sources}
