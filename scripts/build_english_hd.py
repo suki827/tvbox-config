@@ -53,6 +53,9 @@ def check(url):
 
 def main():
     approved_hosts = {host.strip().lower() for host in os.getenv("ENGLISH_HD_APPROVED_HOSTS", "").split(",") if host.strip()}
+    if not approved_hosts:
+        print("No approved hosts configured; existing playlists left untouched.")
+        return
     channels = {
         channel["id"]: channel for channel in fetch("channels.json")
         if channel.get("country") in COUNTRIES
@@ -82,6 +85,9 @@ def main():
             passed.append((channel, url))
 
     passed.sort(key=lambda item: (item[0]["country"], item[0]["name"]))
+    if not passed:
+        print("No HD streams passed; existing playlists left untouched.")
+        return
     hd_lines = ["#EXTM3U"]
     for channel, url in passed:
         hd_lines.extend([
