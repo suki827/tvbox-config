@@ -8,7 +8,7 @@
     "stream_discovery_url": "https://iptv-org.github.io/iptv/countries/us.m3u",
     "stream_status": "STREAM_FOUND",
     "format": "m3u8",
-    "probe_status": "TIMEOUT",
+    "probe_status": "NO_VIDEO",
     "probe_passed": false,
     "width": 0,
     "height": 0,
@@ -28,11 +28,11 @@
       "STREAM_FOUND"
     ],
     "cannot_publish_reasons": [
-      "ffprobe exceeded 8 seconds",
+      "No decodable video stream",
       "Third-party IPTV playlist rights are not confirmed",
       "Access requirements or DRM status are not cleared"
     ],
-    "cannot_publish_reason": "ffprobe exceeded 8 seconds; Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
+    "cannot_publish_reason": "No decodable video stream; Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
   },
   {
     "id": "cbs-news-247",
@@ -43,11 +43,16 @@
     "stream_discovery_url": "https://iptv-org.github.io/iptv/countries/us.m3u",
     "stream_status": "STREAM_FOUND",
     "format": "m3u8",
-    "probe_status": "TIMEOUT",
-    "probe_passed": false,
-    "width": 0,
-    "height": 0,
-    "last_successful_probe": null,
+    "probe_status": "PASS",
+    "probe_passed": true,
+    "width": 1280,
+    "height": 720,
+    "last_successful_probe": {
+      "width": 1280,
+      "height": 720,
+      "checked_at": "2026-10-19T11:15:20+00:00",
+      "test_region": "GITHUB_UNVERIFIED"
+    },
     "rights_status": "pending",
     "rights_evidence_url": "https://www.cbsnews.com/streaming/",
     "rights_approval_scope": "unknown",
@@ -60,14 +65,14 @@
     "nz_verified": false,
     "published": false,
     "status_flags": [
-      "STREAM_FOUND"
+      "STREAM_FOUND",
+      "PROBE_PASSED"
     ],
     "cannot_publish_reasons": [
-      "ffprobe exceeded 8 seconds",
       "Third-party IPTV playlist rights are not confirmed",
       "Access requirements or DRM status are not cleared"
     ],
-    "cannot_publish_reason": "ffprobe exceeded 8 seconds; Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
+    "cannot_publish_reason": "Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
   },
   {
     "id": "nbc-news-now",
@@ -78,11 +83,16 @@
     "stream_discovery_url": "user-provided candidate URL",
     "stream_status": "STREAM_FOUND",
     "format": "m3u8",
-    "probe_status": "TIMEOUT",
-    "probe_passed": false,
-    "width": 0,
-    "height": 0,
-    "last_successful_probe": null,
+    "probe_status": "PASS",
+    "probe_passed": true,
+    "width": 1920,
+    "height": 1080,
+    "last_successful_probe": {
+      "width": 1920,
+      "height": 1080,
+      "checked_at": "2026-10-19T11:15:20+00:00",
+      "test_region": "GITHUB_UNVERIFIED"
+    },
     "rights_status": "pending",
     "rights_evidence_url": "https://nbcnews.zendesk.com/hc/en-us/articles/45174718134419-What-is-NBC-News-NOW",
     "rights_approval_scope": "unknown",
@@ -95,14 +105,14 @@
     "nz_verified": false,
     "published": false,
     "status_flags": [
-      "STREAM_FOUND"
+      "STREAM_FOUND",
+      "PROBE_PASSED"
     ],
     "cannot_publish_reasons": [
-      "ffprobe exceeded 8 seconds",
       "Third-party IPTV playlist rights are not confirmed",
       "Access requirements or DRM status are not cleared"
     ],
-    "cannot_publish_reason": "ffprobe exceeded 8 seconds; Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
+    "cannot_publish_reason": "Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
   },
   {
     "id": "bloomberg-television",
@@ -113,11 +123,16 @@
     "stream_discovery_url": "https://www.reddit.com/r/StockMarket/comments/hvay1v/bloomberg_m3u8_streams_which_should_work_in_vlc/",
     "stream_status": "STREAM_FOUND",
     "format": "m3u8",
-    "probe_status": "TIMEOUT",
-    "probe_passed": false,
-    "width": 0,
-    "height": 0,
-    "last_successful_probe": null,
+    "probe_status": "PASS",
+    "probe_passed": true,
+    "width": 1920,
+    "height": 1080,
+    "last_successful_probe": {
+      "width": 1920,
+      "height": 1080,
+      "checked_at": "2026-10-19T11:15:20+00:00",
+      "test_region": "GITHUB_UNVERIFIED"
+    },
     "rights_status": "pending",
     "rights_evidence_url": "https://www.bloomberg.com/livestream",
     "rights_approval_scope": "unknown",
@@ -130,14 +145,14 @@
     "nz_verified": false,
     "published": false,
     "status_flags": [
-      "STREAM_FOUND"
+      "STREAM_FOUND",
+      "PROBE_PASSED"
     ],
     "cannot_publish_reasons": [
-      "ffprobe exceeded 8 seconds",
       "Third-party IPTV playlist rights are not confirmed",
       "Access requirements or DRM status are not cleared"
     ],
-    "cannot_publish_reason": "ffprobe exceeded 8 seconds; Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
+    "cannot_publish_reason": "Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
   },
   {
     "id": "livenow-fox",
@@ -148,11 +163,16 @@
     "stream_discovery_url": "https://iptv-org.github.io/iptv/countries/us.m3u",
     "stream_status": "STREAM_FOUND",
     "format": "m3u8",
-    "probe_status": "TIMEOUT",
-    "probe_passed": false,
-    "width": 0,
-    "height": 0,
-    "last_successful_probe": null,
+    "probe_status": "PASS",
+    "probe_passed": true,
+    "width": 1280,
+    "height": 720,
+    "last_successful_probe": {
+      "width": 1280,
+      "height": 720,
+      "checked_at": "2026-10-19T11:15:20+00:00",
+      "test_region": "GITHUB_UNVERIFIED"
+    },
     "rights_status": "pending",
     "rights_evidence_url": "https://www.livenowfox.com/",
     "rights_approval_scope": "unknown",
@@ -165,14 +185,14 @@
     "nz_verified": false,
     "published": false,
     "status_flags": [
-      "STREAM_FOUND"
+      "STREAM_FOUND",
+      "PROBE_PASSED"
     ],
     "cannot_publish_reasons": [
-      "ffprobe exceeded 8 seconds",
       "Third-party IPTV playlist rights are not confirmed",
       "Access requirements or DRM status are not cleared"
     ],
-    "cannot_publish_reason": "ffprobe exceeded 8 seconds; Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
+    "cannot_publish_reason": "Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
   },
   {
     "id": "fox-weather",
@@ -183,11 +203,16 @@
     "stream_discovery_url": "https://iptv-org.github.io/iptv/countries/us.m3u",
     "stream_status": "STREAM_FOUND",
     "format": "m3u8",
-    "probe_status": "TIMEOUT",
-    "probe_passed": false,
-    "width": 0,
-    "height": 0,
-    "last_successful_probe": null,
+    "probe_status": "PASS",
+    "probe_passed": true,
+    "width": 1280,
+    "height": 720,
+    "last_successful_probe": {
+      "width": 1280,
+      "height": 720,
+      "checked_at": "2026-10-19T11:15:20+00:00",
+      "test_region": "GITHUB_UNVERIFIED"
+    },
     "rights_status": "pending",
     "rights_evidence_url": "https://help.foxweather.com/hc/en-us/articles/4408918479643-How-can-I-watch-the-FOX-Weather-livestream",
     "rights_approval_scope": "unknown",
@@ -200,14 +225,14 @@
     "nz_verified": false,
     "published": false,
     "status_flags": [
-      "STREAM_FOUND"
+      "STREAM_FOUND",
+      "PROBE_PASSED"
     ],
     "cannot_publish_reasons": [
-      "ffprobe exceeded 8 seconds",
       "Third-party IPTV playlist rights are not confirmed",
       "Access requirements or DRM status are not cleared"
     ],
-    "cannot_publish_reason": "ffprobe exceeded 8 seconds; Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
+    "cannot_publish_reason": "Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
   },
   {
     "id": "pbs-newshour",
@@ -251,11 +276,16 @@
     "stream_discovery_url": "https://iptv-org.github.io/iptv/countries/us.m3u",
     "stream_status": "STREAM_FOUND",
     "format": "m3u8",
-    "probe_status": "TIMEOUT",
-    "probe_passed": false,
-    "width": 0,
-    "height": 0,
-    "last_successful_probe": null,
+    "probe_status": "PASS",
+    "probe_passed": true,
+    "width": 1920,
+    "height": 1080,
+    "last_successful_probe": {
+      "width": 1920,
+      "height": 1080,
+      "checked_at": "2026-10-19T11:15:20+00:00",
+      "test_region": "GITHUB_UNVERIFIED"
+    },
     "rights_status": "pending",
     "rights_evidence_url": "https://www.scrippsnews.com/",
     "rights_approval_scope": "unknown",
@@ -268,14 +298,14 @@
     "nz_verified": false,
     "published": false,
     "status_flags": [
-      "STREAM_FOUND"
+      "STREAM_FOUND",
+      "PROBE_PASSED"
     ],
     "cannot_publish_reasons": [
-      "ffprobe exceeded 8 seconds",
       "Third-party IPTV playlist rights are not confirmed",
       "Access requirements or DRM status are not cleared"
     ],
-    "cannot_publish_reason": "ffprobe exceeded 8 seconds; Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
+    "cannot_publish_reason": "Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
   },
   {
     "id": "cnn-international",
@@ -385,11 +415,16 @@
     "stream_discovery_url": "https://iptv-org.github.io/iptv/countries/uk.m3u",
     "stream_status": "STREAM_FOUND",
     "format": "m3u8",
-    "probe_status": "ACCESS_DENIED",
-    "probe_passed": false,
-    "width": 0,
-    "height": 0,
-    "last_successful_probe": null,
+    "probe_status": "PASS",
+    "probe_passed": true,
+    "width": 1920,
+    "height": 1080,
+    "last_successful_probe": {
+      "width": 1920,
+      "height": 1080,
+      "checked_at": "2026-10-19T11:15:20+00:00",
+      "test_region": "GITHUB_UNVERIFIED"
+    },
     "rights_status": "pending",
     "rights_evidence_url": "https://apps.apple.com/gb/app/gb-news/id1566365113",
     "rights_approval_scope": "unknown",
@@ -402,13 +437,13 @@
     "nz_verified": false,
     "published": false,
     "status_flags": [
-      "STREAM_FOUND"
+      "STREAM_FOUND",
+      "PROBE_PASSED"
     ],
     "cannot_publish_reasons": [
-      "https://amg01076-lightningintern-gbnewsau-samsungau-et7fz.amagi.tv/playlist/amg01076-lightningintern-gbnewsau-samsungau/playlist.m3u8: Server returned 403 Forbidden (access denied)",
       "Third-party IPTV playlist rights are not confirmed",
       "Access requirements or DRM status are not cleared"
     ],
-    "cannot_publish_reason": "https://amg01076-lightningintern-gbnewsau-samsungau-et7fz.amagi.tv/playlist/amg01076-lightningintern-gbnewsau-samsungau/playlist.m3u8: Server returned 403 Forbidden (access denied); Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
+    "cannot_publish_reason": "Third-party IPTV playlist rights are not confirmed; Access requirements or DRM status are not cleared"
   }
 ]
