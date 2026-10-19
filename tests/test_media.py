@@ -35,6 +35,10 @@ class MediaTests(unittest.TestCase):
         revoked = build_media.playlist([item],sources,'live_video','A',{item['id']:{'status':'ACCESS_DENIED'}},passed)
         self.assertEqual(revoked,'#EXTM3U\n')
 
+    def test_official_youtube_link_allowed_but_never_as_stream(self):
+        self.assertTrue(build_media.safe_url('https://www.youtube.com/watch?v=abc'))
+        self.assertFalse(build_media.safe_stream_url('https://www.youtube.com/watch?v=abc'))
+
     def test_duplicate_or_token_stream_rejected(self):
         item = copy.deepcopy(self.items[0]); item.update(type='live_video',stream_url='https://example.org/live?token=secret')
         with self.assertRaises(ValueError): build_media.validate(self.sources,[item])

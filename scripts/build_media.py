@@ -34,7 +34,14 @@ def safe_url(url):
         return False
     parsed = urllib.parse.urlparse(url)
     return (parsed.scheme == 'https' and bool(parsed.hostname) and not parsed.username
-            and not TOKEN_RE.search(parsed.query) and parsed.hostname.lower() not in ('youtube.com', 'www.youtube.com', 'youtu.be', 'm.youtube.com'))
+            and not TOKEN_RE.search(parsed.query))
+
+
+def safe_stream_url(url):
+    if not safe_url(url):
+        return False
+    host = urllib.parse.urlparse(url).hostname.lower()
+    return host not in ('youtube.com', 'www.youtube.com', 'youtu.be', 'm.youtube.com')
 
 
 def validate(sources, items):
@@ -59,7 +66,7 @@ def validate(sources, items):
             raise ValueError(f"Invalid official URL for {item['id']}")
         stream = item.get('stream_url')
         if stream:
-            if not safe_url(stream) or stream in seen_streams:
+            if not safe_stream_url(stream) or stream in seen_streams:
                 raise ValueError(f"Unsafe or duplicate stream for {item['id']}")
             seen_streams.add(stream)
         if item.get('rss_url') and not safe_url(item['rss_url']):
@@ -137,7 +144,7 @@ def probe(item):
 
 def stream_eligible(item, source):
     return (item['type'] in ('live_video', 'live_audio') and item['type'] in source['access_types']
-            and item.get('stream_url') and item.get('drm_status') == 'none'
+            and safe_stream_url(item.get('stream_url')) and item.get('drm_status') == 'none'
             and item.get('review_status') == 'approved'
             and item.get('rights_status') == 'approved'
             and source.get('rights_status') == 'approved'
