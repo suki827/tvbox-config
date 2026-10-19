@@ -1,28 +1,36 @@
-# 英文高清 IPTV 候选审核
+# 美国 / 英国英文直播源审核
 
-2026-10-19 从 `live_config.m3u` 的 4,071 个 M3U 条目读取名称、分组、tvg-id、tvg-logo、URL 和扩展名，人工精选高质量英文频道写入 `data/iptv_candidates.json`。原列表可发现流，但不证明语言、画质、地区可用性或第三方播放许可。`data/iptv_selected.json` 与候选池独立。两个受保护列表的基线哈希记录于 `data/protected_baseline.json`。
+候选范围严格限定为用户指定的 12 个频道。开始/结束时 `live_config.m3u` 与 `live_config_base.m3u` 均各有 4,071 个 `#EXTINF` 条目，基线 SHA-256 同为 `3eccadddfe79704699bc59d54a7b12d810bb95b9cd17f85724635a90098048ef`。英文高清发布流程不修改这两个文件。
 
-## 已发布
+IPTV-org 的美国/英国列表只用于发现候选。每个候选分别记录来源、流地址、技术状态和授权状态；即使 HLS 通过 ffprobe/ffmpeg，也不会据此确认再分发权。
 
-| 频道 | 依据 | 本轮结果 | 注意 |
+## 目标频道逐项结果
+
+| 频道 | 官方观看入口与条件 | 直连候选 / 本轮检测 | 发布决定 |
 |---|---|---|---|
-| Parliament TV (New Zealand) | [议会转播条款](https://www3.parliament.nz/en/get-involved/information-for-the-press/parliament-tv-terms-and-conditions/)；[议会与 Kordia 平台说明](https://www3.parliament.nz/en/footer/about-us/parliamentary-service/parliament-sector-annual-reports/p%C5%ABrongo-%C4%81-tau-o-te-r%C4%81ngai-p%C4%81remata-202324-parliament-sector-annual-report-202324/introduction-and-shared-highlights/) | Kordia 主 HLS 的 1080p 轨道通过 `ffprobe`；1080p 子流首帧通过 `ffmpeg` 解码 | 仅在议会开会时直播议事；不可用于商业广告、赞助或误导性呈现；NZ 本地尚未实测 |
+| ABC News Live | [ABC News Live](https://abcnews.go.com/Live) 官方直播页面 | Akamai HLS 被索引收录；本轮 `NO_VIDEO` | 未取得第三方 M3U 权利，且无视频轨道 |
+| CBS News 24/7 | [CBS 官方说明](https://www.cbsnews.com/streaming/)：免费网页、应用及其合作平台 | Pluto 分发候选；本轮 `TIMEOUT` | 合作平台可看不等于允许第三方播放器接入 |
+| NBC News NOW | [NBC News 官方说明](https://nbcnews.zendesk.com/hc/en-us/articles/45174718134419-What-is-NBC-News-NOW)：免费 24/7 服务 | 用户提供的 Xumo CloudFront 地址；本轮 `TIMEOUT` | Xumo 分发地址未提供公开 M3U 再分发许可 |
+| Bloomberg Television | [Bloomberg Live TV](https://www.bloomberg.com/livestream) 提供官方直播与设备/频道入口 | 官方域名 manifest 候选；本轮 `TIMEOUT` | 未找到允许第三方 M3U 使用该 feed 的条款 |
+| LiveNOW from FOX | [LiveNOW from FOX](https://www.livenowfox.com/) 官方入口 | 第一轮 Amagi/Vizio HLS 读到 1280×720 且首帧解码通过；复测超时，最新状态为 `TIMEOUT` | 可达性不稳定；第三方播放/再分发权仍待书面确认 |
+| FOX Weather | [FOX Weather Live](https://www.foxweather.com/live)；[帮助页](https://help.foxweather.com/hc/en-us/articles/4408918479643-How-can-I-watch-the-FOX-Weather-livestream)称官方直播免费 24/7 | 官方域名 HLS 候选；本轮 `TIMEOUT` | 官方网页/App 和列出的 FAST 合作平台不证明任意 M3U 再分发许可 |
+| PBS NewsHour | [官方观看说明](https://www.pbs.org/newshour/how-to-watch-pbs-newshour)：节目按时段网页直播并提供点播 | 未发现持续线性频道 HLS，未探测 | 属于官方节目直播/点播入口，不作为 24/7 M3U 频道；PBS 本地台直播有地区权益限制 |
+| Scripps News | [Scripps News](https://www.scrippsnews.com/) 官方入口 | Tubi 分发 HLS 候选；本轮 `TIMEOUT` | Tubi 合作分发不能证明可向第三方列表再发布 |
+| CNN International | [CNN Live TV 帮助](https://help.cnn.com/us/Answer/Detail/000001007) | 未发现公开、授权的直连 HLS | 完整直播涉及电视服务商/订阅资格；保留官方入口 |
+| Sky News | [Sky News Live](https://news.sky.com/watch-live) 官方网页播放器；[App 说明](https://www.sky.com/help/articles/sky-news-app-what-do-you-need-help-with)提示 UK 网络使用要求 | 未发现可公开使用的直连 HLS；没有提取官方播放器地址 | 仅官方网页/App；不据 App 地区说明推断网页以外的访问结果 |
+| BBC News | [BBC News](https://www.bbc.com/news)；[BBC 官方订阅地区说明](https://help.bbc.com/hc/en-us/articles/46983028513299-Is-BBC-iPlayer-included-in-the-BBC-subscription) | 未发现获准 TVBox 使用的 HLS | BBC.com 直播权益因地区/产品而异；iPlayer 仅限英国且需要有效 TV licence。NZ 可用性未核实 |
+| GB News | [GB News App](https://apps.apple.com/gb/app/gb-news/id1566365113) 官方直播入口 | UK 索引命中的是 Samsung Australia 的 FAST 地址；本轮 `ACCESS_DENIED` | 不把澳洲分发地址当作英国 feed；403 不自动判定为地区限制；无再分发授权 |
 
-议会官方年度报告的稳定链接如发生变更，应从[议会官网](https://www.parliament.nz/)核对 Kordia 合作关系。正式流在 `english_hd.m3u`，此文档不复制播放 URL。
+## 本轮探测汇总
 
-## 待审核与拒绝
+12 个频道中找到 8 个直接 HLS 候选。首轮短测仅 LiveNOW from FOX 成功解码一帧（720p）；复测时 7 个候选超时（含 LiveNOW），GB News 的澳洲 FAST 地址返回访问拒绝。最新一轮没有稳定通过者，且没有任何 1080p 源通过。所有检测由当前自动化运行环境发起并标记 `GITHUB_UNVERIFIED`，不是新西兰本地测试。
 
-技术检测通过但**未取得第三方播放器明确许可**：ABC News Australia、France 24 English、Bloomberg TV Asia。NHK WORLD-JAPAN 曾在本轮早一次探测中达到 720p，但最终复测超时；仍不具备发布许可。它们均为 `DISCOVERED`，不会进入 M3U。其他候选的无视频轨道、超时、服务器错误等细节见 `english_hd_verification.csv`。已有列表中 CNN、BBC、DW、Al Jazeera 等代理流不因名称或公开可达而获得授权。PBS KIDS 美国权益受限，不针对新西兰做绕过检测。
+所有 12 个频道目前均无经确认的第三方 M3U 发布许可。候选可以出现 `STREAM_FOUND` 和 `PROBE_PASSED`，但只有人工确认 `RIGHTS_APPROVED` 后才可能进入 `english_hd.m3u`。失败的候选不会清掉已有的、仍获准且只因暂时网络故障待复测的频道；本次迁移主动移除了范围外的 Parliament TV，因此当前列表只有标准 `#EXTM3U` 头、0 条频道。
 
-### TVNZ+
+Raspberry Pi 5 可在新西兰本地运行：
 
-[TVNZ+ House Rules](https://corporate.tvnz.co.nz/house-rules/)规定账户仅限家庭使用、内容仅限新西兰、未经明确许可不得另作使用，并禁止自动工具及绕过访问或认证限制。[官方 TVNZ+](https://www.tvnz.co.nz/)提供网站和受支持设备入口；调查中未找到公开的、供 TVBox 调用的 OAuth/API 或第三方播放器方案。仓库不收集登录资料，不保存会话，也不发布 TVNZ+ 的 M3U 直链。候选数据中该项为 `REJECTED`（仅指直接 M3U 接入），官网入口继续保留。
+```sh
+python3 scripts/check_local_playback.py --candidates english_hd_candidates.json --region NZ --workers 2 --timeout 15
+```
 
-## 状态含义
-
-- `DISCOVERED`：发现或技术可达，但尚不满足全部发布条件。
-- `VERIFIED`：来源条件和视频检测都通过，本轮可发布。
-- `REJECTED`：本轮明确不合格，包括无视频、低于 720p 或直接接入不被支持。
-- `RETAINED_RECHECK`：此前已发布且仍有有效许可的流本轮暂时超时；保留 URL，但本轮不标 `VERIFIED`。
-
-GitHub Actions 从美国托管运行器检测，统一标记 `NZ_UNVERIFIED`。本地脚本报告独立保存，只有确实在新西兰网络上运行且由操作者确认时才可作为 NZ 实测证据。
+该程序只写独立本地检测报告，不提升授权状态。Codex 当前无法访问用户的 Raspberry Pi，因此 NZ 本地检测未完成。

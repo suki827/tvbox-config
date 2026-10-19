@@ -4,7 +4,7 @@ import subprocess
 import sys
 
 FILES = ('english_hd.m3u', 'english_hd_verification.csv',
-         'data/iptv_candidates.json', 'data/iptv_selected.json')
+         'english_hd_candidates.json', 'data/iptv_candidates.json', 'data/iptv_selected.json')
 
 
 def command(*args, check=True, capture_output=False):

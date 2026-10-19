@@ -12,6 +12,7 @@ on:
       - "scripts/playlist.py"
       - "data/iptv_candidates.json"
       - "data/iptv_selected.json"
+      - "english_hd_candidates.json"
       - "tests/**"
 
 permissions:
@@ -39,7 +40,7 @@ jobs:
       - name: Run tests
         run: python3 -m unittest discover -s tests -v
       - name: Probe reviewed IPTV candidates
-        run: python3 scripts/build_english_hd.py --region NZ_UNVERIFIED
+        run: python3 scripts/build_english_hd.py --region GITHUB_UNVERIFIED
       - name: Verify protected base playlists
         run: git diff --exit-code -- live_config.m3u live_config_base.m3u
       - name: Upload English HD verification report
@@ -47,7 +48,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: english-hd-verification
-          path: english_hd_verification.csv
+          path: |
+            english_hd_verification.csv
+            english_hd_candidates.json
           if-no-files-found: warn
       - name: Commit results
         run: python3 scripts/commit_english_hd.py
