@@ -1,22 +1,22 @@
 id,source_id,type,status,http_status,width,height,detail,test_region,checked_at
-rnz-home,rnz,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-tvnz-plus-home,tvnz-plus,official_link,SKIPPED_POLICY,,0,0,Source disallows automated access; use official link manually,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-abc-news-australia-home,abc-news-australia,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-dw-english-home,dw-english,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-france24-english-home,france24-english,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-al-jazeera-english-home,al-jazeera-english,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-nasa-plus-home,nasa-plus,vod,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-nhk-world-japan-home,nhk-world-japan,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-bloomberg-television-home,bloomberg-television,official_link,ACCESS_DENIED,403,0,0,HTTP Error 403: Forbidden,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-real-easy-english,bbc-learning-english,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-six-minute-english,bbc-learning-english,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-the-english-we-speak,bbc-learning-english,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-learning-english-from-news,bbc-learning-english,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-voa-lets-learn-english,voa-learning-english,vod,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-voa-learning-english-podcast,voa-learning-english,podcast,STALE_RSS,200,0,0,250 entries inspected; latest=2025-03-31T00:30:03+00:00,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-abc-business-english,abc-education,vod,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-british-council-learnenglish,british-council,official_link,TIMEOUT,,0,0,HTTP request exceeded 8 seconds,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-british-council-podcasts,british-council,official_link,TIMEOUT,,0,0,HTTP request exceeded 8 seconds,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-rnz-learning,rnz,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-bbc-news-learning,bbc-news,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
-ted-ed,ted,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:16:57+00:00
+rnz-home,rnz,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+tvnz-plus-home,tvnz-plus,official_link,SKIPPED_POLICY,,0,0,Source disallows automated access; use official link manually,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+abc-news-australia-home,abc-news-australia,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+dw-english-home,dw-english,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+france24-english-home,france24-english,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+al-jazeera-english-home,al-jazeera-english,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+nasa-plus-home,nasa-plus,vod,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+nhk-world-japan-home,nhk-world-japan,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+bloomberg-television-home,bloomberg-television,official_link,ACCESS_DENIED,403,0,0,HTTP Error 403: Forbidden,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+real-easy-english,bbc-learning-english,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+six-minute-english,bbc-learning-english,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+the-english-we-speak,bbc-learning-english,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+learning-english-from-news,bbc-learning-english,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+voa-lets-learn-english,voa-learning-english,vod,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+voa-learning-english-podcast,voa-learning-english,podcast,STALE_RSS,200,0,0,250 entries inspected; latest=2025-03-31T00:30:03+00:00,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+abc-business-english,abc-education,vod,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+british-council-learnenglish,british-council,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+british-council-podcasts,british-council,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+rnz-learning,rnz,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+bbc-news-learning,bbc-news,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00
+ted-ed,ted,official_link,PASS,200,0,0,,NZ_UNVERIFIED,2026-10-19T07:21:45+00:00

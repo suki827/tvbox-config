@@ -999,7 +999,7 @@
       "availability_regions": "unknown",
       "access_requirements": "unknown",
       "drm_status": "unknown",
-      "link_check_status": "TIMEOUT"
+      "link_check_status": "PASS"
     },
     {
       "id": "british-council-podcasts",
@@ -1030,7 +1030,7 @@
       "availability_regions": "unknown",
       "access_requirements": "unknown",
       "drm_status": "unknown",
-      "link_check_status": "TIMEOUT"
+      "link_check_status": "PASS"
     },
     {
       "id": "rnz-learning",
