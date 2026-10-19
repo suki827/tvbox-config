@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-19T07:21:45+00:00",
+  "checked_at": "2026-10-19T07:23:32+00:00",
   "test_region": "NZ_UNVERIFIED",
   "results": [
     {
@@ -12,7 +12,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "tvnz-plus-home",
@@ -24,7 +24,7 @@
       "height": 0,
       "detail": "Source disallows automated access; use official link manually",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "abc-news-australia-home",
@@ -36,7 +36,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "dw-english-home",
@@ -48,7 +48,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "france24-english-home",
@@ -60,7 +60,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "al-jazeera-english-home",
@@ -72,7 +72,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "nasa-plus-home",
@@ -84,7 +84,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "nhk-world-japan-home",
@@ -96,7 +96,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "bloomberg-television-home",
@@ -108,7 +108,7 @@
       "height": 0,
       "detail": "HTTP Error 403: Forbidden",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "real-easy-english",
@@ -120,7 +120,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "six-minute-english",
@@ -132,7 +132,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "the-english-we-speak",
@@ -144,7 +144,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "learning-english-from-news",
@@ -156,7 +156,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "voa-lets-learn-english",
@@ -168,7 +168,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "voa-learning-english-podcast",
@@ -180,7 +180,7 @@
       "height": 0,
       "detail": "250 entries inspected; latest=2025-03-31T00:30:03+00:00",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "abc-business-english",
@@ -192,7 +192,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "british-council-learnenglish",
@@ -204,7 +204,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "british-council-podcasts",
@@ -216,7 +216,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "rnz-learning",
@@ -228,7 +228,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "bbc-news-learning",
@@ -240,7 +240,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     },
     {
       "id": "ted-ed",
@@ -252,7 +252,7 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:21:45+00:00"
+      "checked_at": "2026-10-19T07:23:32+00:00"
     }
   ]
 }
