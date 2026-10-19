@@ -1,21 +1,22 @@
 # English HD IPTV automation
 
-The GitHub Actions workflow runs daily and can be triggered manually.
+The [Refresh English HD workflow](.github/workflows/english-hd.yml) runs daily at 17:23 UTC and supports manual `workflow_dispatch`. Its GitHub token has `contents: write` permission. The adjacent [Update TVBox live config workflow](.github/workflows/update-live.yml) shares a concurrency group so the two jobs cannot write playlists at the same time.
 
-It retrieves IPTV-org metadata for English channels in New Zealand, the US, the UK and Canada. It checks selected streams with ffprobe, accepting only video at 1280x720 or higher.
+## Source approval
 
-## Approval policy
+Set repository variable `ENGLISH_HD_APPROVED_HOSTS` to a comma-separated list of **exact HTTPS hostnames** whose public streams you independently checked for authorized redistribution, for example `stream.example.org,cdn.example.org`. The safe default is empty: no stream is fetched or published. IPTV-org is used for channel/feed metadata and candidate discovery; its inclusion is not proof of a streaming license. An approved host is a human review input, not automatic legal verification. The repository maintainer must verify the channel and stream rights before adding each host. No secrets are needed. Region-specific playback rights still apply.
 
-Configure repository variable ENGLISH_HD_APPROVED_HOSTS as a comma-separated list of first-party stream hostnames that you have independently confirmed permit public use. With no approved hosts, no new streams will be added. IPTV-org inclusion alone does not establish authorization.
+The workflow bounds probing to 72 URLs, six concurrent ffprobe processes, 22 seconds per process, and 15 minutes for the job. It considers English feeds in NZ, US, GB and CA and the requested content categories. A stream enters the English playlist only after ffprobe returns a video stream at least 1280×720. When several URLs represent one channel, the highest measured resolution wins. A 403 response without explicit geo-block text is reported as `ACCESS_DENIED`, not guessed to be a regional restriction.
 
-## Outputs
+## Files and safety
 
-- english_hd.m3u: validated English HD entries
-- live_config.m3u: existing channels plus the separate 英文高清 group
-- english_hd_verification.csv: probe results
+- `live_config_base.m3u` is the preserved original, non-English source. The initial file is an exact copy of the former `live_config.m3u` (4,068 entries). Future regular refreshes add new channels to this base without deleting old ones.
+- `english_hd.m3u` is the independent list of streams that passed ffprobe. It starts empty until an authorized stream passes.
+- `live_config.m3u` is rebuilt from the base plus validated entries in `group-title="英文高清"`. The merge excludes duplicate URLs and channels and is repeatable without appending copies.
+- `english_hd_verification.csv` records every probed candidate's dimensions, status, detail, and URL. Each workflow run also uploads its report as an artifact, even when no stream passes. `CONFIGURATION_REQUIRED` is the initial report status; it is not a verification result.
 
-The script retains existing channels, and preserves previously accepted English HD entries if a run finds no valid replacements. Successful checks from GitHub servers do not guarantee playback from New Zealand.
+If candidate discovery or probing produces no passing streams, the builder leaves both playlists as they were. The workflow commits generated files only after at least one stream passed and the merge validated. No-file-change runs exit successfully. GitHub Actions commits made with `GITHUB_TOKEN` do not trigger another workflow run; these workflows have no playlist-based push trigger in any case.
 
-## Run
+Statuses include `PASS`, `LOW_RESOLUTION`, `TIMEOUT`, `UNREACHABLE`, `REGION_RESTRICTED`, `ACCESS_DENIED`, `OTHER_ERROR`, and `DUPLICATE_CHANNEL`. A prior successful stream may remain in the published playlist after a wholly unsuccessful check; its current reachability is not implied. Playback from GitHub's runner does not guarantee playback in every region.
 
-Actions > Refresh English HD > Run workflow.
+Run local tests with `python3 -m unittest discover -s tests -v`. The tests use mocked feeds and probe results, so they require no network or approved hosts.

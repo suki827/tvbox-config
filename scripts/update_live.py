@@ -2,6 +2,11 @@
 import urllib.request
 import pathlib
 
+try:
+    from .playlist import merge_base_playlists, merge_playlists
+except ImportError:
+    from playlist import merge_base_playlists, merge_playlists
+
 SOURCES = [
     ("新西兰", "https://i.mjh.nz/nz/kodi-tv.m3u8"),
     ("中国", "http://193.123.86.190:14888/TV/iptv.php"),
@@ -58,8 +63,10 @@ def should_skip(name, play):
         or "cmvideo.cn" in p
     )
 
-def main():
+def main(root=None):
+    root = pathlib.Path(root) if root is not None else pathlib.Path(__file__).resolve().parents[1]
     lines = ["# TVBox直播列表", ""]
+    failed = False
     for group, url in SOURCES:
         try:
             text = fetch(url)
@@ -83,9 +90,13 @@ def main():
             print(group, len(cleaned))
         except Exception as e:
             print("WARN", group, e)
+            failed = True
+
+    if failed:
+        print('At least one source failed; previous playlists left untouched.')
+        return False
 
     txt_content = "\n".join(lines)
-    pathlib.Path("live_config.txt").write_text(txt_content, encoding="utf-8")
 
     # 同步生成标准 M3U，保留完整分组名
     m3u_lines = ["#EXTM3U"]
@@ -107,7 +118,19 @@ def main():
         m3u_lines.append(f'#EXTINF:-1 group-title="{safe_group}",{safe_name}')
         m3u_lines.append(play)
 
-    pathlib.Path("live_config.m3u").write_text("\n".join(m3u_lines) + "\n", encoding="utf-8")
+    refreshed = "\n".join(m3u_lines) + "\n"
+    base_path = root / 'live_config_base.m3u'
+    if base_path.exists():
+        previous = base_path.read_text(encoding='utf-8-sig')
+        base = merge_base_playlists(previous, refreshed)
+    else:
+        base = refreshed
+    hd_path = root / 'english_hd.m3u'
+    combined = merge_playlists(base, hd_path.read_text(encoding='utf-8')) if hd_path.exists() else base
+    (root / 'live_config.txt').write_text(txt_content, encoding='utf-8')
+    base_path.write_text(base, encoding='utf-8')
+    (root / 'live_config.m3u').write_text(combined, encoding='utf-8')
+    return True
 
 if __name__ == "__main__":
     main()
