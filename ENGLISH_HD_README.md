@@ -1,6 +1,6 @@
 # English HD IPTV automation
 
-The [Refresh English HD workflow](.github/workflows/english-hd.yml) runs daily at 17:23 UTC and supports manual `workflow_dispatch`. Its GitHub token has `contents: write` permission. The adjacent [Update TVBox live config workflow](.github/workflows/update-live.yml) shares a concurrency group so the two jobs cannot write playlists at the same time.
+The [Refresh English HD workflow](.github/workflows/english-hd.yml) runs daily at 17:23 UTC, supports manual `workflow_dispatch`, and tests source/workflow changes on push. Its GitHub token has `contents: write` permission. The adjacent [Update TVBox live config workflow](.github/workflows/update-live.yml) shares a concurrency group so the two jobs cannot write playlists at the same time.
 
 ## Source approval
 

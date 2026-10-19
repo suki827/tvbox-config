@@ -3,6 +3,12 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "23 17 * * *"
+  push:
+    paths:
+      - ".github/workflows/english-hd.yml"
+      - "scripts/build_english_hd.py"
+      - "scripts/playlist.py"
+      - "tests/**"
 
 permissions:
   contents: write
