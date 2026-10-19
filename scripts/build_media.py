@@ -10,15 +10,17 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone, timedelta
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 KINDS = {'live_video', 'live_audio', 'vod', 'podcast', 'official_link'}
-REPORT_FIELDS = ['id', 'source_id', 'type', 'status', 'http_status', 'width', 'height', 'detail', 'test_region', 'checked_at']
+REPORT_FIELDS = ['id', 'source_id', 'type', 'status', 'http_status', 'width', 'height', 'detail', 'test_region', 'checked_at', 'rights_status']
 TOKEN_RE = re.compile(r'(?:token|expires|exp|signature|sig|auth|key)=', re.I)
+NETWORK_FAILURES = {'TIMEOUT', 'UNREACHABLE'}
+RSS_LIMIT = 2_500_000
 
 
 def read_json(path):
@@ -80,8 +82,12 @@ def check_web(url, rss=False):
         request = urllib.request.Request(url, headers={'User-Agent': 'CuratedMedia/1.0', 'Accept': 'application/rss+xml, application/atom+xml, text/html, */*'})
         with urllib.request.urlopen(request, timeout=8) as response:
             status = response.status
-            body = response.read(512_000) if rss else b''
+            if rss and int(response.headers.get('Content-Length') or 0) > RSS_LIMIT:
+                return 'RSS_TOO_LARGE', status, f'Feed exceeds {RSS_LIMIT} bytes'
+            body = response.read(RSS_LIMIT + 1) if rss else b''
         if rss:
+            if len(body) > RSS_LIMIT:
+                return 'RSS_TOO_LARGE', status, f'Feed exceeds {RSS_LIMIT} bytes'
             root = ET.fromstring(body)
             if root.tag not in ('rss', '{http://www.w3.org/2005/Atom}feed'):
                 return 'INVALID_RSS', status, 'Root is not RSS or Atom'
@@ -109,13 +115,13 @@ def check_web(url, rss=False):
         return 'OTHER_ERROR' if isinstance(error, ET.ParseError) else 'UNREACHABLE', None, str(error)[:300]
 
 
-def probe(item):
+def probe(item, timeout=15):
     try:
-        result = subprocess.run(['ffprobe', '-v', 'error', '-rw_timeout', '8000000',
+        result = subprocess.run(['ffprobe', '-v', 'error', '-rw_timeout', str(timeout * 1_000_000),
                                  '-show_entries', 'stream=codec_type,width,height', '-of', 'json',
-                                 item['stream_url']], capture_output=True, text=True, timeout=15)
+                                 item['stream_url']], capture_output=True, text=True, timeout=timeout)
     except subprocess.TimeoutExpired:
-        return 'TIMEOUT', 0, 0, 'ffprobe exceeded 15 seconds'
+        return 'TIMEOUT', 0, 0, f'ffprobe exceeded {timeout} seconds'
     except OSError as error:
         return 'OTHER_ERROR', 0, 0, str(error)
     if result.returncode:
@@ -144,6 +150,7 @@ def probe(item):
 
 def stream_eligible(item, source):
     return (item['type'] in ('live_video', 'live_audio') and item['type'] in source['access_types']
+            and item['type'] in source.get('approved_stream_types', [])
             and safe_stream_url(item.get('stream_url')) and item.get('drm_status') == 'none'
             and item.get('review_status') == 'approved'
             and item.get('rights_status') == 'approved'
@@ -153,10 +160,48 @@ def stream_eligible(item, source):
             and item.get('access_requirements') == 'none')
 
 
+def update_health(old, report):
+    """Keep unrelated review, region, freshness and transport states independent."""
+    status = report['status']
+    previous_failures = old.get('consecutive_failures', 0) if old.get('status') in NETWORK_FAILURES else 0
+    failures = previous_failures + 1 if status in NETWORK_FAILURES else 0
+    network = (status if status in NETWORK_FAILURES | {'PASS', 'ACCESS_DENIED'}
+               else 'PASS' if status in {'STALE_RSS', 'LOW_RESOLUTION'}
+               else 'NOT_CHECKED' if status in {'SKIPPED_POLICY', 'PENDING_RIGHTS'}
+               else 'UNKNOWN')
+    result = dict(old)
+    result.update(status=status, network_status=network, consecutive_failures=failures,
+                  quarantined=failures >= 3, last_checked_at=report['checked_at'],
+                  rights_status=report.get('rights_status', old.get('rights_status', 'UNKNOWN')),
+                  region_status='RESTRICTED' if status == 'REGION_RESTRICTED' else 'UNKNOWN',
+                  freshness_status='STALE' if status == 'STALE_RSS' else 'CURRENT' if report['type'] == 'podcast' and status == 'PASS' else 'UNKNOWN',
+                  quality_status='LOW_RESOLUTION' if status == 'LOW_RESOLUTION' else 'PASS' if report['type'] == 'live_video' and status == 'PASS' else 'UNKNOWN')
+    if status == 'PASS':
+        result['last_success_at'] = report['checked_at']
+        if report['type'] in ('live_video', 'live_audio'):
+            result['last_playback_success_at'] = report['checked_at']
+    return result
+
+
+def migrate_health(history):
+    """Repair legacy counters for policy, rights, content and access statuses."""
+    migrated = {}
+    for item_id, old in history.items():
+        report = {'status': old.get('status', 'UNKNOWN'), 'type': 'unknown',
+                  'checked_at': old.get('last_checked_at')}
+        fixed = update_health(old, report)
+        if old.get('status') in NETWORK_FAILURES:
+            fixed['consecutive_failures'] = old.get('consecutive_failures', 0)
+            fixed['quarantined'] = fixed['consecutive_failures'] >= 3
+        migrated[item_id] = fixed
+    return migrated
+
+
 def playlist(items, source_by_id, kind, profile, results, old_text=''):
     selected = []
     old_urls = set(re.findall(r'^https://[^\s]+$', old_text, re.M))
     used = set()
+    used_channels = set()
     for item in items:
         if item['type'] != kind or profile not in item['profiles']:
             continue
@@ -164,10 +209,12 @@ def playlist(items, source_by_id, kind, profile, results, old_text=''):
         if not stream_eligible(item, source):
             continue
         url = item['stream_url']
+        channel_key = (item['source_id'], item['title'].strip().casefold())
         status = results.get(item['id'], {}).get('status')
         if status == 'PASS' or (status in ('TIMEOUT', 'UNREACHABLE', 'OTHER_ERROR') and url in old_urls):
-            if url not in used:
+            if url not in used and channel_key not in used_channels:
                 used.add(url)
+                used_channels.add(channel_key)
                 selected.append(item)
     lines = ['#EXTM3U']
     for item in selected:
@@ -183,8 +230,13 @@ def build(root=ROOT, do_check=False, region='NZ_UNVERIFIED'):
     sources = read_json(root/'data/media_sources.json')
     items = read_json(root/'data/media_items.json')
     validate(sources, items)
+    if do_check and not any(item['type'] in ('live_video', 'live_audio') for item in items):
+        published = any((root/name).exists() and (root/name).read_text(encoding='utf-8').strip() != '#EXTM3U'
+                        for name in ('premium_tv.m3u', 'premium_radio.m3u', 'english_learning.m3u'))
+        if published:
+            raise RuntimeError('No live records in master data; retaining previously published playlists')
     source_by_id = {s['id']: s for s in sources}
-    previous = read_json(root/'data/channel_health.json') if (root/'data/channel_health.json').exists() else {}
+    previous = migrate_health(read_json(root/'data/channel_health.json')) if (root/'data/channel_health.json').exists() else {}
     checked_at = datetime.now(timezone.utc).isoformat(timespec='seconds') if do_check else None
     reports = []
     def inspect(item):
@@ -203,7 +255,7 @@ def build(root=ROOT, do_check=False, region='NZ_UNVERIFIED'):
             status, http, detail = check_web(item['official_url'])
         return {'id': item['id'], 'source_id': item['source_id'], 'type': item['type'], 'status': status, 'http_status': http,
                 'width': width, 'height': height, 'detail': detail, 'test_region': region,
-                'checked_at': checked_at}
+                'checked_at': checked_at, 'rights_status': item.get('rights_status', 'unknown')}
     if do_check:
         with ThreadPoolExecutor(max_workers=6) as pool:
             futures = [pool.submit(inspect, item) for item in items]
@@ -214,15 +266,11 @@ def build(root=ROOT, do_check=False, region='NZ_UNVERIFIED'):
     health = dict(previous)
     if do_check:
         for report in reports:
-            old = previous.get(report['id'], {})
-            failures = 0 if report['status'] == 'PASS' else old.get('consecutive_failures', 0) + 1
-            health[report['id']] = {'status': report['status'], 'consecutive_failures': failures,
-                                    'quarantined': failures >= 3, 'last_checked_at': checked_at,
-                                    'last_success_at': checked_at if report['status'] == 'PASS' else old.get('last_success_at')}
+            health[report['id']] = update_health(previous.get(report['id'], {}), report)
         write_json(root/'data/channel_health.json', health)
         write_json(root/'data/media_verification.json', {'checked_at': checked_at, 'test_region': region, 'results': reports})
         with (root/'media_check_report.csv').open('w', encoding='utf-8', newline='') as file:
-            writer = csv.DictWriter(file, fieldnames=REPORT_FIELDS)
+            writer = csv.DictWriter(file, fieldnames=REPORT_FIELDS, lineterminator='\n')
             writer.writeheader(); writer.writerows(reports)
         if not any(report['status'] == 'PASS' for report in reports):
             raise RuntimeError('No official entry passed connectivity checks; published catalogs remain unchanged')
@@ -246,6 +294,9 @@ def build(root=ROOT, do_check=False, region='NZ_UNVERIFIED'):
             entry['availability_regions'] = source_by_id[item['source_id']]['availability_regions']
             entry['access_requirements'] = source_by_id[item['source_id']]['access_requirements']
             entry['link_check_status'] = results[item['id']]['status'] if do_check else 'NOT_CHECKED'
+            entry['verification_status'] = results[item['id']]['status'] if item['type'] in ('live_video', 'live_audio') else 'NOT_TESTED'
+            entry['verification_region'] = region if do_check else 'NZ_UNVERIFIED'
+            entry['verification_checked_at'] = checked_at
             catalog.append(entry)
         write_json(root/filename, catalog)
     (root/'docs').mkdir(exist_ok=True)
@@ -253,6 +304,9 @@ def build(root=ROOT, do_check=False, region='NZ_UNVERIFIED'):
     for item in items:
         entry = dict(item)
         entry['link_check_status'] = results[item['id']]['status'] if do_check else 'NOT_CHECKED'
+        entry['verification_status'] = results[item['id']]['status'] if item['type'] in ('live_video', 'live_audio') else 'NOT_TESTED'
+        entry['verification_region'] = region if do_check else 'NZ_UNVERIFIED'
+        entry['verification_checked_at'] = checked_at
         site_items.append(entry)
     write_json(root/'docs/catalog.json', {'sources': sources, 'items': site_items})
     return reports

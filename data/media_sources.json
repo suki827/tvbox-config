@@ -21,13 +21,16 @@
       "official_link"
     ],
     "availability_regions": "unknown",
-    "access_cost": "unknown",
-    "access_requirements": "unknown",
-    "rights_status": "unknown",
-    "rights_evidence_url": "https://www.rnz.co.nz/",
-    "rights_checked_at": null,
+    "access_cost": "free",
+    "access_requirements": "none",
+    "rights_status": "approved",
+    "rights_evidence_url": "https://www.rnz.co.nz/listen/audiohelp",
+    "rights_checked_at": "2026-10-19",
     "last_verified_at": null,
-    "nz_access": "NZ_UNVERIFIED"
+    "nz_access": "NZ_UNVERIFIED",
+    "approved_stream_types": [
+      "live_audio"
+    ]
   },
   {
     "id": "tvnz-plus",

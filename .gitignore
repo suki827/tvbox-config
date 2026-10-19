@@ -1,2 +1,3 @@
+local_playback_report.json
+local_playback_report.failed.json
 __pycache__/
-*.pyc

@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-19T07:23:32+00:00",
+  "checked_at": "2026-10-19T09:06:40+00:00",
   "test_region": "NZ_UNVERIFIED",
   "results": [
     {
@@ -12,7 +12,8 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "tvnz-plus-home",
@@ -24,7 +25,8 @@
       "height": 0,
       "detail": "Source disallows automated access; use official link manually",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "abc-news-australia-home",
@@ -36,7 +38,8 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "dw-english-home",
@@ -48,7 +51,8 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "france24-english-home",
@@ -60,7 +64,8 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "al-jazeera-english-home",
@@ -72,7 +77,8 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "nasa-plus-home",
@@ -84,7 +90,8 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "nhk-world-japan-home",
@@ -96,7 +103,8 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "bloomberg-television-home",
@@ -108,7 +116,8 @@
       "height": 0,
       "detail": "HTTP Error 403: Forbidden",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "real-easy-english",
@@ -120,7 +129,8 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "six-minute-english",
@@ -132,7 +142,8 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "the-english-we-speak",
@@ -144,7 +155,8 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "learning-english-from-news",
@@ -156,7 +168,8 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "voa-lets-learn-english",
@@ -168,7 +181,8 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "voa-learning-english-podcast",
@@ -180,7 +194,8 @@
       "height": 0,
       "detail": "250 entries inspected; latest=2025-03-31T00:30:03+00:00",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "abc-business-english",
@@ -192,31 +207,34 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "british-council-learnenglish",
       "source_id": "british-council",
       "type": "official_link",
-      "status": "PASS",
-      "http_status": 200,
+      "status": "TIMEOUT",
+      "http_status": null,
       "width": 0,
       "height": 0,
-      "detail": "",
+      "detail": "HTTP request exceeded 8 seconds",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "british-council-podcasts",
       "source_id": "british-council",
       "type": "official_link",
-      "status": "PASS",
-      "http_status": 200,
+      "status": "TIMEOUT",
+      "http_status": null,
       "width": 0,
       "height": 0,
-      "detail": "",
+      "detail": "HTTP request exceeded 8 seconds",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "rnz-learning",
@@ -228,7 +246,8 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "bbc-news-learning",
@@ -240,7 +259,8 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
     },
     {
       "id": "ted-ed",
@@ -252,7 +272,242 @@
       "height": 0,
       "detail": "",
       "test_region": "NZ_UNVERIFIED",
-      "checked_at": "2026-10-19T07:23:32+00:00"
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
+    },
+    {
+      "id": "rnz-national-live",
+      "source_id": "rnz",
+      "type": "live_audio",
+      "status": "PASS",
+      "http_status": null,
+      "width": 0,
+      "height": 0,
+      "detail": "",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "approved"
+    },
+    {
+      "id": "rnz-concert-live",
+      "source_id": "rnz",
+      "type": "live_audio",
+      "status": "PASS",
+      "http_status": null,
+      "width": 0,
+      "height": 0,
+      "detail": "",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "approved"
+    },
+    {
+      "id": "voa-level-2",
+      "source_id": "voa-learning-english",
+      "type": "vod",
+      "status": "PASS",
+      "http_status": 200,
+      "width": 0,
+      "height": 0,
+      "detail": "",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
+    },
+    {
+      "id": "voa-everyday-grammar",
+      "source_id": "voa-learning-english",
+      "type": "official_link",
+      "status": "PASS",
+      "http_status": 200,
+      "width": 0,
+      "height": 0,
+      "detail": "",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
+    },
+    {
+      "id": "abc-learn-english",
+      "source_id": "abc-education",
+      "type": "official_link",
+      "status": "PASS",
+      "http_status": 200,
+      "width": 0,
+      "height": 0,
+      "detail": "",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
+    },
+    {
+      "id": "abc-listening-for-meaning",
+      "source_id": "abc-education",
+      "type": "vod",
+      "status": "PASS",
+      "http_status": 200,
+      "width": 0,
+      "height": 0,
+      "detail": "",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
+    },
+    {
+      "id": "abc-life-chat-small-talk",
+      "source_id": "abc-education",
+      "type": "vod",
+      "status": "PASS",
+      "http_status": 200,
+      "width": 0,
+      "height": 0,
+      "detail": "",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
+    },
+    {
+      "id": "rnz-morning-report",
+      "source_id": "rnz",
+      "type": "podcast",
+      "status": "PASS",
+      "http_status": 200,
+      "width": 0,
+      "height": 0,
+      "detail": "716 entries inspected; latest=2026-10-18T21:00:00+00:00",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
+    },
+    {
+      "id": "rnz-saturday",
+      "source_id": "rnz",
+      "type": "podcast",
+      "status": "PASS",
+      "http_status": 200,
+      "width": 0,
+      "height": 0,
+      "detail": "39 entries inspected; latest=2026-10-16T21:30:00+00:00",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
+    },
+    {
+      "id": "british-council-grammar",
+      "source_id": "british-council",
+      "type": "official_link",
+      "status": "TIMEOUT",
+      "http_status": null,
+      "width": 0,
+      "height": 0,
+      "detail": "HTTP request exceeded 8 seconds",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
+    },
+    {
+      "id": "ted-talks",
+      "source_id": "ted",
+      "type": "official_link",
+      "status": "PASS",
+      "http_status": 200,
+      "width": 0,
+      "height": 0,
+      "detail": "",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "unknown"
+    },
+    {
+      "id": "abc-news-live",
+      "source_id": "abc-news-australia",
+      "type": "live_video",
+      "status": "PENDING_RIGHTS",
+      "http_status": null,
+      "width": 0,
+      "height": 0,
+      "detail": "Direct stream or third-party playback rights unapproved",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "pending"
+    },
+    {
+      "id": "dw-english-live",
+      "source_id": "dw-english",
+      "type": "live_video",
+      "status": "PENDING_RIGHTS",
+      "http_status": null,
+      "width": 0,
+      "height": 0,
+      "detail": "Direct stream or third-party playback rights unapproved",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "pending"
+    },
+    {
+      "id": "france24-english-live",
+      "source_id": "france24-english",
+      "type": "live_video",
+      "status": "PENDING_RIGHTS",
+      "http_status": null,
+      "width": 0,
+      "height": 0,
+      "detail": "Direct stream or third-party playback rights unapproved",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "pending"
+    },
+    {
+      "id": "al-jazeera-english-live",
+      "source_id": "al-jazeera-english",
+      "type": "live_video",
+      "status": "PENDING_RIGHTS",
+      "http_status": null,
+      "width": 0,
+      "height": 0,
+      "detail": "Direct stream or third-party playback rights unapproved",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "pending"
+    },
+    {
+      "id": "nasa-plus-live",
+      "source_id": "nasa-plus",
+      "type": "live_video",
+      "status": "PENDING_RIGHTS",
+      "http_status": null,
+      "width": 0,
+      "height": 0,
+      "detail": "Direct stream or third-party playback rights unapproved",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "pending"
+    },
+    {
+      "id": "nhk-world-japan-live",
+      "source_id": "nhk-world-japan",
+      "type": "live_video",
+      "status": "PENDING_RIGHTS",
+      "http_status": null,
+      "width": 0,
+      "height": 0,
+      "detail": "Direct stream or third-party playback rights unapproved",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "pending"
+    },
+    {
+      "id": "bloomberg-television-live",
+      "source_id": "bloomberg-television",
+      "type": "live_video",
+      "status": "PENDING_RIGHTS",
+      "http_status": null,
+      "width": 0,
+      "height": 0,
+      "detail": "Direct stream or third-party playback rights unapproved",
+      "test_region": "NZ_UNVERIFIED",
+      "checked_at": "2026-10-19T09:06:40+00:00",
+      "rights_status": "pending"
     }
   ]
 }
