@@ -8135,3 +8135,9 @@ https://mumbai-edge.smartplaytv.in/ZeeCinemaluHD/index.m3u8
 https://amg00862-amg00862c9-amgplt0173.playout.now3.amagi.tv/playlist/amg00862-amg00862c9-amgplt0173/playlist.m3u8
 #EXTINF:-1 group-title="movies",Zee Talkies (576p)
 http://107.167.16.138/zeetalkies/index.m3u8?token=test
+#EXTINF:-1 group-title="documentary",Animal Planet (Poland) HD (1080i)
+http://57.128.231.171:8080/317/index.m3u8
+#EXTINF:-1 group-title="movies",Az Cinema (1080p)
+http://15.204.196.147:22880/CABLE-MAGES-AZCINEMA/video.m3u8
+#EXTINF:-1 group-title="movies",FILMBOX+ One Magyar
+http://88.212.15.17/live/filmbox_hungary/index.m3u8

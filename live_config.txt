@@ -1,7 +1,6 @@
 # TVBox直播列表
 
 新西兰,#genre#
-ThreeNow Sport 1,https://i.mjh.nz/.r/sky-popup1.m3u8
 HGTV,https://i.mjh.nz/.r/sky-hgtv.m3u8
 CNN Headlines International,https://i.mjh.nz/.r/sky-ptcn.m3u8
 MovieSphere,https://i.mjh.nz/.r/sky-ptms.m3u8
@@ -751,7 +750,6 @@ Hasbro Legends (1080p) [Geo-blocked],https://amg02713-amg02713c11-amgplt0852.pla
 HauntTV (1080p),https://amg01446-blueantmediacan-haunttvaussam-samsungau-vcnai.amagi.tv/playlist/amg01446-blueantmediacan-haunttvaussam-samsungau/playlist.m3u8
 HBO (United States) (720p),http://tvsen7.aynascope.net/hbo/index.m3u8
 HBO Hits (720p),http://tvsen7.aynascope.net/hbo2/index.m3u8
-HBO Movies (720p),http://23.237.104.106:8080/USA_HBO_ZONE/index.m3u8
 HBTV (720p),https://reflect-huntingtonbeach.cablecast.tv/live-4/live/stream-1/live.m3u8
 HCTV Educational Access Channel,https://reflect-hudsonctv.cablecast.tv/live-26/live/stream-1/live.m3u8
 HCTV Government Channel,https://reflect-hudsonctv.cablecast.tv/live-26/live/stream-2/live.m3u8
@@ -1734,6 +1732,7 @@ NBC TV (1080p) [Not 24/7],https://205444.global.ssl.fastly.net/64ee8a084b935f9f8
 NBT World (1080p),https://cdn-edge.iiptvcdn.com/live_event/smil:d36f-93c1-9c58-fdcc-427f.smil/playlist.m3u8
 New Channel Pop! (480p),https://vodcdn.bamboo-cloud.com/livehls/6ab37c6c7e057f9063071c85/master.m3u8
 News24 (1080p),https://skynewsau-live-premium.akamaized.net/hls/live/2105299/skynews/live.m3u8
+News24 World,https://skynewsau-live-premium.akamaized.net/hls/live/2105306/skynewsextra/live_540p.m3u8
 News of the World (720p),https://nowhls.wns.live/hls/stream.m3u8
 NHK World Premium (720p),https://media-tyo.hls.nhkworld.jp/hls/wp/live/master.m3u8
 NHK World-Japan (1080p),https://masterpl.hls.nhkworld.jp/hls/w/live/smarttv.m3u8
@@ -1764,7 +1763,6 @@ SKI TV (1080p) [Not 24/7],https://d2xeo83q8fcni6.cloudfront.net/v1/master/9d0625
 Sky News Extra 1 (540p),https://skynewsau-live.akamaized.net/hls/live/2002689/skynewsau-extra1/master.m3u8
 Sky News Extra 2 (540p) [Not 24/7],https://skynewsau-live.akamaized.net/hls/live/2002690/skynewsau-extra2/master.m3u8
 Sky News Extra 3 (1080p),https://skynewsau-live.akamaized.net/hls/live/2002691/skynewsau-extra3/master.m3u8
-Sky News Extra,https://skynewsau-live-premium.akamaized.net/hls/live/2105306/skynewsextra/live_540p.m3u8
 Sky News Weather Channel,https://skynewsau-live-premium.akamaized.net/hls/live/2105305/skynewsweather/live_540p.m3u8
 Sky Racing 1 (720p),https://636ffd31f0e12.streamlock.net/RacingStream1/RacingStream1/playlist.m3u8
 Sky Racing 2 (720p) [Geo-blocked],https://skylivetab-new.akamaized.net/hls/live/2038781/sky2/index.m3u8
@@ -1989,6 +1987,7 @@ AlternaTV (720p) [Not 24/7],https://tv.alterna.ar/stream/hls/live.m3u8
 American Heroes Channel (720p),http://23.237.104.106:8080/USA_AMERICAN_HEROES/index.m3u8
 Animal Planet (India) (720p),https://drk6xq0vhn.gpcdn.net/live/animal_planet_sd_abr/index.m3u8
 Animal Planet (India) HD (720p),https://drk6xq0vhn.gpcdn.net/live/animal_planet_hd_abr/index.m3u8
+Animal Planet (Poland) HD (1080i),http://57.128.231.171:8080/317/index.m3u8
 Animal Planet (Russia) (1080p),http://stream.mcquack.net/114/index.m3u8
 Animal Planet (United States) (720p),http://23.239.31.26:8989/animalplanet/index.m3u8
 Animal Planet Latin America (1080p),http://190.128.214.97:64333/play/a01n/index.m3u8
@@ -2710,8 +2709,8 @@ music,#genre#
 88 Stereo (720p) [Not 24/7],http://k3.usastreams.com/CableLatino/88stereo/playlist.m3u8
 98.1 Pearl FM (720p),https://live2.tensila.com/pearl-v-1.pearlfm/hls/live/mystream.m3u8
 360TuneBox (1080p),https://dash3.antik.sk/live/test_360_tunebox_medium_atk/playlist.m3u8
-¡Viva Latino! (1080p),http://stream.mcquack.net/285/index.m3u8
 +MaisUm (720p),https://stream.ichibansys.com:3230/hybrid/play.m3u8
+¡Viva Latino! (1080p),http://stream.mcquack.net/285/index.m3u8
 A1 (576p),http://31.148.48.15/A1/index.m3u8
 A2i Music (720p) [Not 24/7],https://stream.sen-gt.com/A2iMusic/myStream/playlist.m3u8
 Aaryaa TV (1080p),https://stream.ottlive.co.in/aryatvtamil/index.m3u8
@@ -3477,11 +3476,11 @@ movies,#genre#
 80s Rewind,https://jmp2.uk/plu-5ca525b650be2571e3943c63.m3u8
 90s Throwback,https://jmp2.uk/plu-5f4d86f519358a00072b978e.m3u8
 312 Kino (406p),http://176.126.166.43:1935/live/312kino/playlist.m3u8
+&TV International (1080p),https://amg01117-amg01117c1-amgplt0029.playout.now3.amagi.tv/playlist/amg01117-amg01117c1-amgplt0029/playlist.m3u8
++MaisUm (720p),https://stream.ichibansys.com:3230/hybrid/play.m3u8
 &TV (576p),http://103.151.60.162:2122/play/a020/index.m3u8?hls
 &TV HD (1080p),http://202.70.146.135:8000/play/a06c/index.m3u8
-&TV International (1080p),https://amg01117-amg01117c1-amgplt0029.playout.now3.amagi.tv/playlist/amg01117-amg01117c1-amgplt0029/playlist.m3u8
 &xplor HD (1080p) [Geo-blocked],http://dksmedia.tv/play/live.php?mac=00:1A:79:B6:60:3D&stream=209743&extension=ts&play_token=mR7FwO88sY
-+MaisUm (720p),https://stream.ichibansys.com:3230/hybrid/play.m3u8
 ABN Bible Movies Channel (720p),https://mediaserver.abnvideos.com/streams/abnbiblemovies.m3u8
 Action 24 (1080p) [Not 24/7],http://actionlive.siliconweb.com/actionabr/actiontv/playlist.m3u8
 Adrenalina Pura TV (720p),https://jmp2.uk/plu-61b793ccf571b80007b7a610.m3u8
@@ -3533,6 +3532,7 @@ like Gecko) Chrome/149.0.0.0 Safari/537.3" group-title="Movies",AXN Movies (Port
 AXN Movies (Spain),https://cdn.stmify.com/zapitv/stream/AXN_MOVIES/axn_white.mpd
 AXN Poland (1080p),http://92.114.85.87:8015/play/a00f/index.m3u8
 AXN White (Poland) (576i),http://92.114.85.87:8014/play/a004/index.m3u8
+Az Cinema (1080p),http://15.204.196.147:22880/CABLE-MAGES-AZCINEMA/video.m3u8
 B4U Bhojpuri (1080p),https://cdnb4u.wiseplayout.com/B4U_Bhojpuri/master.m3u8
 B4U Kadak (576p),https://streams.tangotv.in/B4UKADAK/ORIGIN/index.m3u8
 B4U Movies (576p),https://streams.tangotv.in/B4UMOVIES/ORIGIN/index.m3u8
@@ -3720,11 +3720,12 @@ FILMBOX+ Hits Romania (576p),https://nosignal1.antenaplay.ro/hls/fb-hits-sd/inde
 like Gecko) Chrome/149.0.0.0 Safari/537.3" group-title="Movies",FILMBOX+ Love & Crime,http://88.212.15.17/live/test_filmbox_plus_atk_1200/playlist.m3u8
 like Gecko) Chrome/149.0.0.0 Safari/537.3" group-title="Movies",FILMBOX+ Love & Crime Adria,https://webtvstream.bhtelecom.ba/filmbox_stars.m3u8
 FILMBOX+ Love & Crime Bulgaria (720p),http://hls127.freeott.top:8080/BG_FilmBox_Stars_HD/video.m3u8
+like Gecko) Chrome/149.0.0.0 Safari/537.36" group-title="Movies",FILMBOX+ Love & Crime Magyar,http://88.212.15.17/live/test_filmbox_plus_hun_atk_1200/playlist.m3u8
 FILMBOX+ Love & Crime Romania,https://nosignal1.antenaplay.ro/hls/fb-love-and-crime-sd/index.m3u8
 FILMBOX+ One (1080p),http://57.128.231.171:8080/236/index.m3u8
 FILMBOX+ One Bulgaria (576p),http://hls127.freeott.top:8080/BG_Filmbox/video.m3u8
 like Gecko) Chrome/149.0.0.0 Safari/537.3" group-title="Movies",FILMBOX+ One Czechia,http://88.212.15.17/live/test_filmbox/playlist.m3u8
-like Gecko) Chrome/149.0.0.0 Safari/537.36" group-title="Movies",FILMBOX+ One Magyar,http://88.212.15.17/live/test_filmbox_plus_hun_atk_1200/playlist.m3u8
+FILMBOX+ One Magyar,http://88.212.15.17/live/filmbox_hungary/index.m3u8
 FILMBOX+ One Nederland,http://46.149.191.219:9100/play/a015
 like Gecko) Chrome/152.0.0.0 Safari/537.36" group-title="Movies",FILMBOX+ One Romania (576p),https://nosignal1.antenaplay.ro/hls/fb-one-sd/index.m3u8
 FILMBOX+ One Ukraine & Baltics (450p) [Geo-blocked],https://s70378.cdn.ngenix.net/filmbox/index.m3u8
@@ -3776,7 +3777,6 @@ HBO Asia SD (720p) [Geo-blocked],https://tinyurl.com/yn3d3rmd
 HBO Asia Taiwan (1080p),http://125.227.210.55:1003/VideoInput/play.ts
 HBO Hits (720p),http://tvsen7.aynascope.net/hbo2/index.m3u8
 HBO Hits Asia HD (1080p),https://2x2.me/BbwzPx
-HBO Movies (720p),http://23.237.104.106:8080/USA_HBO_ZONE/index.m3u8
 like Gecko) Chrome/154.0.0.0 Safari/537.36 VLC/3.0.18 LibVLC/3.0.18" group-title="Movies",HBO Mundi Latin America,https://bantel-cdn1.iptvperu.tv:1936/btnscrtn/cinemax.stream/chunks.m3u8
 like Gecko) Chrome/154.0.0.0 Safari/537.36 VLC/3.0.18 LibVLC/3.0.18" group-title="Movies;Series",HBO Xtreme Latin America,https://bantel-cdn1.iptvperu.tv:1936/btnscrtn/HBO_Xtreme/chunks.m3u8
 Hero (720p) [Not 24/7],https://live-fi.tvkaista.net/hero/live.m3u8?hd=true
