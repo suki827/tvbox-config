@@ -8,6 +8,9 @@ on:
       - ".github/workflows/english-hd.yml"
       - "scripts/build_english_hd.py"
       - "scripts/playlist.py"
+      - "scripts/build_media.py"
+      - "data/**"
+      - "docs/**"
       - "tests/**"
 
 permissions:
@@ -40,6 +43,22 @@ jobs:
           ENGLISH_HD_MAX_CHECKS: "72"
           ENGLISH_HD_WORKERS: "6"
         run: python3 scripts/build_english_hd.py
+      - name: Check curated media and build catalogs
+        id: media
+        env:
+          MEDIA_TEST_REGION: NZ_UNVERIFIED
+        run: |
+          python3 scripts/build_media.py --check
+          echo "validated=true" >> "$GITHUB_OUTPUT"
+      - name: Upload media verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: curated-media-verification
+          path: |
+            data/media_verification.json
+            media_check_report.csv
+          if-no-files-found: warn
       - name: Upload verification report
         if: always()
         uses: actions/upload-artifact@v4
@@ -48,7 +67,7 @@ jobs:
           path: english_hd_verification.csv
           if-no-files-found: warn
       - name: Commit verified results
-        if: steps.build.outputs.validated == 'true'
+        if: steps.build.outputs.validated == 'true' || steps.media.outputs.validated == 'true'
         env:
           ENGLISH_HD_APPROVED_HOSTS: ${{ vars.ENGLISH_HD_APPROVED_HOSTS }}
           ENGLISH_HD_MAX_CHECKS: "72"
@@ -64,17 +83,18 @@ jobs:
               git reset --hard origin/main
               : > "$GITHUB_OUTPUT"
               python3 scripts/build_english_hd.py
-              if ! grep -q '^validated=true$' "$GITHUB_OUTPUT"; then
-                echo "No streams passed on the latest main; keeping published files."
-                exit 0
-              fi
+              python3 scripts/build_media.py --check
             fi
-            git add -A -- live_config.m3u english_hd.m3u english_hd_verification.csv
+            git add -A -- live_config.m3u english_hd.m3u english_hd_verification.csv \
+              premium_tv.m3u premium_radio.m3u premium_catalog.json \
+              english_learning.m3u english_learning_catalog.json \
+              data/channel_health.json data/media_verification.json \
+              media_check_report.csv docs/catalog.json
             if git diff --cached --quiet; then
               echo "No verified file changes."
               exit 0
             fi
-            git commit -m "chore: refresh English HD playlist"
+            git commit -m "chore: refresh verified media catalogs"
             if git push origin HEAD:main; then
               exit 0
             fi

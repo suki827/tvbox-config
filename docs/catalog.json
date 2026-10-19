@@ -1,0 +1,1129 @@
+{
+  "sources": [
+    {
+      "id": "rnz",
+      "name": "RNZ",
+      "country": "NZ",
+      "language": "en",
+      "categories": [
+        "news",
+        "radio",
+        "documentary"
+      ],
+      "profiles": [
+        "A",
+        "B"
+      ],
+      "official_url": "https://www.rnz.co.nz/",
+      "access_types": [
+        "live_audio",
+        "podcast",
+        "vod",
+        "official_link"
+      ],
+      "availability_regions": "unknown",
+      "access_cost": "unknown",
+      "access_requirements": "unknown",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://www.rnz.co.nz/",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "tvnz-plus",
+      "name": "TVNZ+",
+      "country": "NZ",
+      "language": "en",
+      "categories": [
+        "entertainment",
+        "news"
+      ],
+      "profiles": [
+        "A"
+      ],
+      "official_url": "https://www.tvnz.co.nz/",
+      "access_types": [
+        "vod",
+        "official_link"
+      ],
+      "availability_regions": "NZ",
+      "access_cost": "unknown",
+      "access_requirements": "account",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://corporate.tvnz.co.nz/house-rules/",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED",
+      "automated_checks_allowed": false
+    },
+    {
+      "id": "bbc-news",
+      "name": "BBC News",
+      "country": "GB",
+      "language": "en",
+      "categories": [
+        "news"
+      ],
+      "profiles": [
+        "B"
+      ],
+      "official_url": "https://www.bbc.com/news",
+      "access_types": [
+        "live_video",
+        "vod",
+        "official_link"
+      ],
+      "availability_regions": "unknown",
+      "access_cost": "unknown",
+      "access_requirements": "unknown",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://help.bbc.com/hc/en-us/articles/42343579768851-Can-I-watch-the-BBC-News-channel-online-via-BBC-com-and-or-BBC-app",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "bbc-learning-english",
+      "name": "BBC Learning English",
+      "country": "GB",
+      "language": "en",
+      "categories": [
+        "education"
+      ],
+      "profiles": [
+        "B"
+      ],
+      "official_url": "https://www.bbc.co.uk/learningenglish/",
+      "access_types": [
+        "vod",
+        "podcast",
+        "official_link"
+      ],
+      "availability_regions": "unknown",
+      "access_cost": "unknown",
+      "access_requirements": "unknown",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://downloads.bbc.co.uk/learningenglish/realeasyenglish/RealEasyEnglish_transcript_ep10_news.pdf",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "cnn",
+      "name": "CNN",
+      "country": "US",
+      "language": "en",
+      "categories": [
+        "news"
+      ],
+      "profiles": [],
+      "official_url": "https://www.cnn.com/",
+      "access_types": [
+        "live_video",
+        "vod",
+        "official_link"
+      ],
+      "availability_regions": "unknown",
+      "access_cost": "unknown",
+      "access_requirements": "subscription_or_provider",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://help.cnn.com/us/Answer/Detail/000001007",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "dw-english",
+      "name": "DW English",
+      "country": "DE",
+      "language": "en",
+      "categories": [
+        "news",
+        "documentary"
+      ],
+      "profiles": [
+        "A"
+      ],
+      "official_url": "https://www.dw.com/en/",
+      "access_types": [
+        "live_video",
+        "vod",
+        "official_link"
+      ],
+      "availability_regions": "unknown",
+      "access_cost": "unknown",
+      "access_requirements": "unknown",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://corporate.dw.com/de/livestream/a-2514651",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "france24-english",
+      "name": "France 24 English",
+      "country": "FR",
+      "language": "en",
+      "categories": [
+        "news"
+      ],
+      "profiles": [
+        "A"
+      ],
+      "official_url": "https://www.france24.com/en/",
+      "access_types": [
+        "live_video",
+        "vod",
+        "official_link"
+      ],
+      "availability_regions": "unknown",
+      "access_cost": "unknown",
+      "access_requirements": "unknown",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://howtowatch.france24.com/en/",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "al-jazeera-english",
+      "name": "Al Jazeera English",
+      "country": "QA",
+      "language": "en",
+      "categories": [
+        "news",
+        "documentary"
+      ],
+      "profiles": [
+        "A"
+      ],
+      "official_url": "https://www.aljazeera.com/",
+      "access_types": [
+        "live_video",
+        "vod",
+        "official_link"
+      ],
+      "availability_regions": "unknown",
+      "access_cost": "unknown",
+      "access_requirements": "unknown",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://www.aljazeera.com/video/live",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "pbs-nova",
+      "name": "PBS / NOVA",
+      "country": "US",
+      "language": "en",
+      "categories": [
+        "science",
+        "documentary"
+      ],
+      "profiles": [],
+      "official_url": "https://www.pbs.org/show/nova/",
+      "access_types": [
+        "vod",
+        "official_link"
+      ],
+      "availability_regions": "US",
+      "access_cost": "unknown",
+      "access_requirements": "unknown",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://help.pbs.org/support/solutions/articles/12000096220-common-questions",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "pbs-kids",
+      "name": "PBS KIDS",
+      "country": "US",
+      "language": "en",
+      "categories": [
+        "kids",
+        "education"
+      ],
+      "profiles": [],
+      "official_url": "https://pbskids.org/",
+      "access_types": [
+        "vod",
+        "official_link"
+      ],
+      "availability_regions": "US",
+      "access_cost": "unknown",
+      "access_requirements": "unknown",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://pbskids.org/apps/pbs-kids-video?ct=t",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "nasa-plus",
+      "name": "NASA+",
+      "country": "US",
+      "language": "en",
+      "categories": [
+        "science",
+        "documentary"
+      ],
+      "profiles": [
+        "A"
+      ],
+      "official_url": "https://plus.nasa.gov/",
+      "access_types": [
+        "live_video",
+        "vod",
+        "official_link"
+      ],
+      "availability_regions": "unknown",
+      "access_cost": "free",
+      "access_requirements": "none",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://www.nasa.gov/ways-to-watch/",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "voa-learning-english",
+      "name": "VOA Learning English",
+      "country": "US",
+      "language": "en",
+      "categories": [
+        "education",
+        "news"
+      ],
+      "profiles": [
+        "B"
+      ],
+      "official_url": "https://learningenglish.voanews.com/",
+      "access_types": [
+        "vod",
+        "podcast",
+        "official_link"
+      ],
+      "availability_regions": "unknown",
+      "access_cost": "unknown",
+      "access_requirements": "unknown",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://learningenglish.voanews.com/podcasts",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "abc-education",
+      "name": "ABC Education",
+      "country": "AU",
+      "language": "en",
+      "categories": [
+        "education"
+      ],
+      "profiles": [
+        "B"
+      ],
+      "official_url": "https://www.abc.net.au/education/",
+      "access_types": [
+        "vod",
+        "official_link"
+      ],
+      "availability_regions": "unknown",
+      "access_cost": "free",
+      "access_requirements": "none",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://www.abc.net.au/education/learn-english/video-courses",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "abc-news-australia",
+      "name": "ABC News Australia",
+      "country": "AU",
+      "language": "en",
+      "categories": [
+        "news"
+      ],
+      "profiles": [
+        "A"
+      ],
+      "official_url": "https://www.abc.net.au/news/",
+      "access_types": [
+        "live_video",
+        "vod",
+        "official_link"
+      ],
+      "availability_regions": "international_live",
+      "access_cost": "free",
+      "access_requirements": "none",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://help.abc.net.au/hc/en-us/articles/13845760226831-How-can-I-access-ABC-services-overseas",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "nhk-world-japan",
+      "name": "NHK WORLD-JAPAN",
+      "country": "JP",
+      "language": "en",
+      "categories": [
+        "news",
+        "documentary"
+      ],
+      "profiles": [
+        "A"
+      ],
+      "official_url": "https://www3.nhk.or.jp/nhkworld/en/",
+      "access_types": [
+        "live_video",
+        "vod",
+        "official_link"
+      ],
+      "availability_regions": "unknown",
+      "access_cost": "unknown",
+      "access_requirements": "unknown",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://www3.nhk.or.jp/nhkworld/en/",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "british-council",
+      "name": "British Council",
+      "country": "GB",
+      "language": "en",
+      "categories": [
+        "education"
+      ],
+      "profiles": [
+        "B"
+      ],
+      "official_url": "https://learnenglish.britishcouncil.org/",
+      "access_types": [
+        "vod",
+        "podcast",
+        "official_link"
+      ],
+      "availability_regions": "unknown",
+      "access_cost": "free",
+      "access_requirements": "none",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://learnenglish.britishcouncil.org/general-english/audio-series/podcasts",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "ted",
+      "name": "TED / TED-Ed",
+      "country": "US",
+      "language": "en",
+      "categories": [
+        "education",
+        "science"
+      ],
+      "profiles": [
+        "B"
+      ],
+      "official_url": "https://www.ted.com/",
+      "access_types": [
+        "vod",
+        "official_link"
+      ],
+      "availability_regions": "unknown",
+      "access_cost": "free",
+      "access_requirements": "none",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://www.ted.com/about/our-organization/our-policies-terms/ted-talks-usage-policy",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    },
+    {
+      "id": "bloomberg-television",
+      "name": "Bloomberg Television",
+      "country": "US",
+      "language": "en",
+      "categories": [
+        "business",
+        "news"
+      ],
+      "profiles": [
+        "A"
+      ],
+      "official_url": "https://www.bloomberg.com/livestream",
+      "access_types": [
+        "live_video",
+        "vod",
+        "official_link"
+      ],
+      "availability_regions": "unknown",
+      "access_cost": "unknown",
+      "access_requirements": "unknown",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://www.bloomberg.com/livestream",
+      "rights_checked_at": null,
+      "last_verified_at": null,
+      "nz_access": "NZ_UNVERIFIED"
+    }
+  ],
+  "items": [
+    {
+      "id": "rnz-home",
+      "title": "RNZ 官方媒体入口",
+      "description": "",
+      "source_id": "rnz",
+      "type": "official_link",
+      "official_url": "https://www.rnz.co.nz/",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "A"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    },
+    {
+      "id": "tvnz-plus-home",
+      "title": "TVNZ+ 官方频道与 App",
+      "description": "",
+      "source_id": "tvnz-plus",
+      "type": "official_link",
+      "official_url": "https://www.tvnz.co.nz/channels",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "A"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "SKIPPED_POLICY"
+    },
+    {
+      "id": "abc-news-australia-home",
+      "title": "ABC NEWS 官方直播入口",
+      "description": "",
+      "source_id": "abc-news-australia",
+      "type": "official_link",
+      "official_url": "https://iview.abc.net.au/show/abc-news-24",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "A"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    },
+    {
+      "id": "dw-english-home",
+      "title": "DW English 官方直播入口",
+      "description": "",
+      "source_id": "dw-english",
+      "type": "official_link",
+      "official_url": "https://www.dw.com/en/live-tv/channel-english",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "A"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    },
+    {
+      "id": "france24-english-home",
+      "title": "France 24 官方观看方式",
+      "description": "",
+      "source_id": "france24-english",
+      "type": "official_link",
+      "official_url": "https://howtowatch.france24.com/en/",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "A"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    },
+    {
+      "id": "al-jazeera-english-home",
+      "title": "Al Jazeera English 官方直播页",
+      "description": "",
+      "source_id": "al-jazeera-english",
+      "type": "official_link",
+      "official_url": "https://www.aljazeera.com/video/live",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "A"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    },
+    {
+      "id": "nasa-plus-home",
+      "title": "NASA+ 官方直播与点播",
+      "description": "",
+      "source_id": "nasa-plus",
+      "type": "vod",
+      "official_url": "https://plus.nasa.gov/",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "A"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    },
+    {
+      "id": "nhk-world-japan-home",
+      "title": "NHK WORLD-JAPAN 官方入口",
+      "description": "",
+      "source_id": "nhk-world-japan",
+      "type": "official_link",
+      "official_url": "https://www3.nhk.or.jp/nhkworld/en/",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "A"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    },
+    {
+      "id": "bloomberg-television-home",
+      "title": "Bloomberg Television 官方直播页",
+      "description": "",
+      "source_id": "bloomberg-television",
+      "type": "official_link",
+      "official_url": "https://www.bloomberg.com/livestream",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "A"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "ACCESS_DENIED"
+    },
+    {
+      "id": "real-easy-english",
+      "title": "Real Easy English",
+      "description": "",
+      "source_id": "bbc-learning-english",
+      "type": "official_link",
+      "official_url": "https://www.bbc.co.uk/learningenglish/",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": "https://downloads.bbc.co.uk/learningenglish/realeasyenglish/RealEasyEnglish_transcript_ep10_news.pdf",
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": true,
+      "profiles": [
+        "B"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    },
+    {
+      "id": "six-minute-english",
+      "title": "6 Minute English",
+      "description": "",
+      "source_id": "bbc-learning-english",
+      "type": "official_link",
+      "official_url": "https://www.bbc.co.uk/learningenglish/",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": "https://downloads.bbc.co.uk/learningenglish/features/6min/210401_6min_english_history_english.pdf",
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": true,
+      "profiles": [
+        "B"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    },
+    {
+      "id": "the-english-we-speak",
+      "title": "The English We Speak",
+      "description": "",
+      "source_id": "bbc-learning-english",
+      "type": "official_link",
+      "official_url": "https://www.bbc.co.uk/learningenglish/",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": "https://downloads.bbc.co.uk/learningenglish/features/tews/141007_tews_joe_bloggs.pdf",
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": true,
+      "profiles": [
+        "B"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    },
+    {
+      "id": "learning-english-from-news",
+      "title": "Learning English from the News",
+      "description": "",
+      "source_id": "bbc-learning-english",
+      "type": "official_link",
+      "official_url": "https://www.bbc.co.uk/learningenglish/",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "B"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    },
+    {
+      "id": "voa-lets-learn-english",
+      "title": "Let's Learn English",
+      "description": "",
+      "source_id": "voa-learning-english",
+      "type": "vod",
+      "official_url": "https://learningenglish.voanews.com/p/5644.html",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "beginner",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "B"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    },
+    {
+      "id": "voa-learning-english-podcast",
+      "title": "VOA Learning English Podcast",
+      "description": "",
+      "source_id": "voa-learning-english",
+      "type": "podcast",
+      "official_url": "https://learningenglish.voanews.com/podcasts",
+      "stream_url": null,
+      "rss_url": "https://learningenglish.voanews.com/podcast/?zoneId=1689",
+      "programme": "VOA Learning English Podcast",
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "US",
+      "recommended_listening": false,
+      "profiles": [
+        "B"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": "https://learningenglish.voanews.com/podcasts",
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "STALE_RSS"
+    },
+    {
+      "id": "abc-business-english",
+      "title": "ABC Education Business English",
+      "description": "",
+      "source_id": "abc-education",
+      "type": "vod",
+      "official_url": "https://www.abc.net.au/education/learn-english/video-courses",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "B"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    },
+    {
+      "id": "british-council-learnenglish",
+      "title": "British Council LearnEnglish",
+      "description": "",
+      "source_id": "british-council",
+      "type": "official_link",
+      "official_url": "https://learnenglish.britishcouncil.org/",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "B"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "TIMEOUT"
+    },
+    {
+      "id": "british-council-podcasts",
+      "title": "LearnEnglish Podcasts",
+      "description": "",
+      "source_id": "british-council",
+      "type": "official_link",
+      "official_url": "https://learnenglish.britishcouncil.org/general-english/audio-series/podcasts",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "intermediate",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "B"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "TIMEOUT"
+    },
+    {
+      "id": "rnz-learning",
+      "title": "RNZ 官方节目",
+      "description": "",
+      "source_id": "rnz",
+      "type": "official_link",
+      "official_url": "https://www.rnz.co.nz/",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "B"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    },
+    {
+      "id": "bbc-news-learning",
+      "title": "BBC News 官方新闻",
+      "description": "",
+      "source_id": "bbc-news",
+      "type": "official_link",
+      "official_url": "https://www.bbc.com/news",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "B"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    },
+    {
+      "id": "ted-ed",
+      "title": "TED-Ed 官方课程",
+      "description": "",
+      "source_id": "ted",
+      "type": "official_link",
+      "official_url": "https://ed.ted.com/",
+      "stream_url": null,
+      "rss_url": null,
+      "programme": null,
+      "duration": null,
+      "resolution": null,
+      "subtitles": "unknown",
+      "transcript_url": null,
+      "learning_level": "unknown",
+      "accent": "unknown",
+      "recommended_listening": false,
+      "profiles": [
+        "B"
+      ],
+      "review_status": "approved_official_link",
+      "rights_status": "unknown",
+      "rights_evidence_url": null,
+      "rights_checked_at": null,
+      "playback_status": "unknown",
+      "last_success_at": null,
+      "availability_regions": "unknown",
+      "access_requirements": "unknown",
+      "drm_status": "unknown",
+      "link_check_status": "PASS"
+    }
+  ]
+}
