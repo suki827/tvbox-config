@@ -56,10 +56,11 @@ def main():
     if not approved_hosts:
         print("No approved hosts configured; existing playlists left untouched.")
         return
+    feeds = fetch("feeds.json")
+    english_feeds = {(feed.get("channel"), feed.get("id")) for feed in feeds if "eng" in (feed.get("languages") or [])}
     channels = {
         channel["id"]: channel for channel in fetch("channels.json")
         if channel.get("country") in COUNTRIES
-        and "eng" in (channel.get("languages") or [])
         and set(channel.get("categories") or []).intersection(CATEGORIES)
         and not channel.get("is_nsfw") and not channel.get("closed")
     }
@@ -69,6 +70,8 @@ def main():
         channel = channels.get(stream.get("channel"))
         url = stream.get("url", "")
         if not channel or not url.startswith("https://") or url in seen:
+            continue
+        if (stream.get("channel"), stream.get("feed")) not in english_feeds:
             continue
         host = urllib.parse.urlparse(url).hostname or ""
         if host.lower() not in approved_hosts:
