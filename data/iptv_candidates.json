@@ -20,13 +20,13 @@
     "height": 720,
     "probe_status": "PASS",
     "test_region": "NZ_UNVERIFIED",
-    "last_checked": "2026-10-19T09:29:27+00:00",
+    "last_checked": "2026-10-19T09:36:04+00:00",
     "state": "DISCOVERED",
     "selected": false,
     "review_note": "Existing playlist is discovery only; official page or CDN does not establish third-party playback permission.",
     "drm_status": "unknown",
     "detail": "",
-    "elapsed_seconds": 13.711
+    "elapsed_seconds": 7.363
   },
   {
     "id": "abc-news-us",
@@ -49,13 +49,13 @@
     "height": 0,
     "probe_status": "NO_VIDEO",
     "test_region": "NZ_UNVERIFIED",
-    "last_checked": "2026-10-19T09:29:27+00:00",
+    "last_checked": "2026-10-19T09:36:04+00:00",
     "state": "REJECTED",
     "selected": false,
     "review_note": "Existing playlist is discovery only; official page or CDN does not establish third-party playback permission.",
     "drm_status": "unknown",
     "detail": "No decodable video stream",
-    "elapsed_seconds": 10.912
+    "elapsed_seconds": 2.526
   },
   {
     "id": "france24-english",
@@ -78,13 +78,13 @@
     "height": 1080,
     "probe_status": "PASS",
     "test_region": "NZ_UNVERIFIED",
-    "last_checked": "2026-10-19T09:29:27+00:00",
+    "last_checked": "2026-10-19T09:36:04+00:00",
     "state": "DISCOVERED",
     "selected": false,
     "review_note": "Existing playlist is discovery only; official page or CDN does not establish third-party playback permission.",
     "drm_status": "unknown",
     "detail": "",
-    "elapsed_seconds": 5.606
+    "elapsed_seconds": 0.467
   },
   {
     "id": "nhk-world-japan",
@@ -103,17 +103,17 @@
     "rights_evidence_url": "https://www3.nhk.or.jp/nhkworld/en/",
     "access_requirements": "none",
     "probe_allowed": true,
-    "width": 0,
-    "height": 0,
-    "probe_status": "TIMEOUT",
+    "width": 1920,
+    "height": 1080,
+    "probe_status": "PASS",
     "test_region": "NZ_UNVERIFIED",
-    "last_checked": "2026-10-19T09:29:27+00:00",
+    "last_checked": "2026-10-19T09:36:04+00:00",
     "state": "DISCOVERED",
     "selected": false,
     "review_note": "Existing playlist is discovery only; official page or CDN does not establish third-party playback permission.",
     "drm_status": "unknown",
-    "detail": "ffprobe exceeded 15 seconds",
-    "elapsed_seconds": 15.017
+    "detail": "",
+    "elapsed_seconds": 3.161
   },
   {
     "id": "bloomberg-asia",
@@ -136,13 +136,13 @@
     "height": 720,
     "probe_status": "PASS",
     "test_region": "NZ_UNVERIFIED",
-    "last_checked": "2026-10-19T09:29:27+00:00",
+    "last_checked": "2026-10-19T09:36:04+00:00",
     "state": "DISCOVERED",
     "selected": false,
     "review_note": "Existing playlist is discovery only; official page or CDN does not establish third-party playback permission.",
     "drm_status": "unknown",
     "detail": "",
-    "elapsed_seconds": 10.872
+    "elapsed_seconds": 1.836
   },
   {
     "id": "bloomberg-originals",
@@ -161,17 +161,17 @@
     "rights_evidence_url": "https://www.bloomberg.com/livestream",
     "access_requirements": "none",
     "probe_allowed": true,
-    "width": 0,
-    "height": 0,
-    "probe_status": "TIMEOUT",
+    "width": 1920,
+    "height": 1080,
+    "probe_status": "PASS",
     "test_region": "NZ_UNVERIFIED",
-    "last_checked": "2026-10-19T09:29:27+00:00",
+    "last_checked": "2026-10-19T09:36:04+00:00",
     "state": "DISCOVERED",
     "selected": false,
     "review_note": "Existing playlist is discovery only; official page or CDN does not establish third-party playback permission.",
     "drm_status": "unknown",
-    "detail": "ffprobe exceeded 15 seconds",
-    "elapsed_seconds": 15.007
+    "detail": "",
+    "elapsed_seconds": 0.666
   },
   {
     "id": "cbs-news-bay-area",
@@ -194,13 +194,13 @@
     "height": 0,
     "probe_status": "NO_VIDEO",
     "test_region": "NZ_UNVERIFIED",
-    "last_checked": "2026-10-19T09:29:27+00:00",
+    "last_checked": "2026-10-19T09:36:04+00:00",
     "state": "REJECTED",
     "selected": false,
     "review_note": "Existing playlist is discovery only; official page or CDN does not establish third-party playback permission.",
     "drm_status": "unknown",
     "detail": "No decodable video stream",
-    "elapsed_seconds": 5.94
+    "elapsed_seconds": 1.009
   },
   {
     "id": "cnn-originals",
@@ -219,17 +219,17 @@
     "rights_evidence_url": "https://www.cnn.com/",
     "access_requirements": "none",
     "probe_allowed": true,
-    "width": 0,
-    "height": 0,
-    "probe_status": "NO_VIDEO",
+    "width": 1920,
+    "height": 1080,
+    "probe_status": "PASS",
     "test_region": "NZ_UNVERIFIED",
-    "last_checked": "2026-10-19T09:29:27+00:00",
-    "state": "REJECTED",
+    "last_checked": "2026-10-19T09:36:04+00:00",
+    "state": "DISCOVERED",
     "selected": false,
     "review_note": "Existing playlist is discovery only; official page or CDN does not establish third-party playback permission.",
     "drm_status": "unknown",
-    "detail": "No decodable video stream",
-    "elapsed_seconds": 5.968
+    "detail": "",
+    "elapsed_seconds": 3.44
   },
   {
     "id": "bbc-earth-us",
@@ -248,17 +248,17 @@
     "rights_evidence_url": "https://www.bbcearth.com/",
     "access_requirements": "none",
     "probe_allowed": true,
-    "width": 0,
-    "height": 0,
-    "probe_status": "TIMEOUT",
+    "width": 1920,
+    "height": 1080,
+    "probe_status": "PASS",
     "test_region": "NZ_UNVERIFIED",
-    "last_checked": "2026-10-19T09:29:27+00:00",
+    "last_checked": "2026-10-19T09:36:04+00:00",
     "state": "DISCOVERED",
     "selected": false,
     "review_note": "Existing playlist is discovery only; official page or CDN does not establish third-party playback permission.",
     "drm_status": "unknown",
-    "detail": "ffprobe exceeded 15 seconds",
-    "elapsed_seconds": 15.019
+    "detail": "",
+    "elapsed_seconds": 1.341
   },
   {
     "id": "bbc-kids",
@@ -281,13 +281,13 @@
     "height": 0,
     "probe_status": "OTHER_ERROR",
     "test_region": "NZ_UNVERIFIED",
-    "last_checked": "2026-10-19T09:29:27+00:00",
+    "last_checked": "2026-10-19T09:36:04+00:00",
     "state": "DISCOVERED",
     "selected": false,
     "review_note": "Existing playlist is discovery only; official page or CDN does not establish third-party playback permission.",
     "drm_status": "unknown",
     "detail": "https://dmr1h4skdal9h.cloudfront.net/playlist.m3u8: Server returned 5XX Server Error reply",
-    "elapsed_seconds": 1.555
+    "elapsed_seconds": 0.502
   },
   {
     "id": "pbs-kids",
@@ -393,17 +393,17 @@
     "rights_evidence_url": "https://www.nbcnews.com/",
     "access_requirements": "none",
     "probe_allowed": true,
-    "width": 0,
-    "height": 0,
-    "probe_status": "TIMEOUT",
+    "width": 1920,
+    "height": 1080,
+    "probe_status": "PASS",
     "test_region": "NZ_UNVERIFIED",
-    "last_checked": "2026-10-19T09:29:27+00:00",
+    "last_checked": "2026-10-19T09:36:04+00:00",
     "state": "DISCOVERED",
     "selected": false,
     "review_note": "Existing playlist is discovery only; official page or CDN does not establish third-party playback permission.",
     "drm_status": "unknown",
-    "detail": "ffprobe exceeded 15 seconds",
-    "elapsed_seconds": 15.01
+    "detail": "",
+    "elapsed_seconds": 0.762
   },
   {
     "id": "tvnz-plus",
@@ -546,11 +546,11 @@
     "height": 1080,
     "probe_status": "PASS",
     "test_region": "NZ_UNVERIFIED",
-    "last_checked": "2026-10-19T09:29:27+00:00",
+    "last_checked": "2026-10-19T09:36:04+00:00",
     "state": "VERIFIED",
     "selected": true,
     "review_note": "Official coverage may be rebroadcast subject to legal obligations; no commercial advertising/sponsorship or misleading use. Kordia operates the Parliament Video platform. Live during House sittings; replay/standby at other times.",
     "detail": "",
-    "elapsed_seconds": 40.021
+    "elapsed_seconds": 9.261
   }
 ]

@@ -24,12 +24,12 @@
     "height": 1080,
     "probe_status": "PASS",
     "test_region": "NZ_UNVERIFIED",
-    "last_checked": "2026-10-19T09:29:27+00:00",
+    "last_checked": "2026-10-19T09:36:04+00:00",
     "state": "VERIFIED",
     "selected": true,
     "review_note": "Official coverage may be rebroadcast subject to legal obligations; no commercial advertising/sponsorship or misleading use. Kordia operates the Parliament Video platform. Live during House sittings; replay/standby at other times.",
     "detail": "",
-    "elapsed_seconds": 40.021,
+    "elapsed_seconds": 9.261,
     "publication_status": "VERIFIED"
   }
 ]
