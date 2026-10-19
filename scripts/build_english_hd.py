@@ -53,11 +53,10 @@ def check(url):
 
 def main():
     approved_hosts = {host.strip().lower() for host in os.getenv("ENGLISH_HD_APPROVED_HOSTS", "").split(",") if host.strip()}
-    feeds = fetch("feeds.json")
-    english_feeds = {(f.get("channel"), f.get("id")) for f in feeds if "eng" in (f.get("languages") or [])}
     channels = {
         channel["id"]: channel for channel in fetch("channels.json")
         if channel.get("country") in COUNTRIES
+        and "eng" in (channel.get("languages") or [])
         and set(channel.get("categories") or []).intersection(CATEGORIES)
         and not channel.get("is_nsfw") and not channel.get("closed")
     }
@@ -67,8 +66,6 @@ def main():
         channel = channels.get(stream.get("channel"))
         url = stream.get("url", "")
         if not channel or not url.startswith("https://") or url in seen:
-            continue
-        if (stream.get("channel"), stream.get("feed")) not in english_feeds and (stream.get("channel"), None) not in english_feeds:
             continue
         host = urllib.parse.urlparse(url).hostname or ""
         if host.lower() not in approved_hosts:
